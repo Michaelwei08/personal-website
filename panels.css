@@ -14,8 +14,23 @@
 .contact-panel {
   padding: clamp(24px, 4vw, 38px);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 2px;
   background: var(--panel);
+}
+
+.experience-list article {
+  position: relative;
+  padding-left: clamp(32px, 5vw, 52px);
+}
+
+.experience-list article::before {
+  content: "";
+  position: absolute;
+  top: 26px;
+  bottom: 26px;
+  left: 16px;
+  width: 3px;
+  background: var(--cardinal);
 }
 
 .experience-list h3,
@@ -29,7 +44,20 @@
 }
 
 .target-panel {
-  border-top: 4px solid var(--cardinal);
+  color: white;
+  border-color: var(--graphite);
+  border-top: 5px solid var(--cardinal);
+  background: var(--graphite);
+}
+
+.target-panel .tag,
+.target-panel .text-link {
+  color: #8ce1d9;
+}
+
+.target-panel p,
+.target-panel .interest-list {
+  color: #c8d3d1;
 }
 
 .interest-list {
@@ -47,12 +75,13 @@
   justify-content: space-between;
   gap: 32px;
   padding: 54px clamp(20px, 6vw, 76px);
-  color: white;
-  background: var(--teal-dark);
+  color: var(--ink);
+  border-block: 1px solid var(--ink);
+  background: #dbe9e5;
 }
 
 .resume-band .eyebrow {
-  color: #b9eeea;
+  color: var(--cardinal);
 }
 
 .resume-band h2 {
@@ -63,17 +92,35 @@
 
 .button.light {
   flex: 0 0 auto;
-  color: var(--teal-dark);
-  background: white;
+  color: white;
+  background: var(--graphite);
 }
 
 .contact-panel {
   align-self: center;
   color: var(--ink);
+  border-top: 5px solid #8ce1d9;
+}
+
+.contact-panel .tag,
+.contact-panel .contact-links a {
+  color: var(--teal-dark);
 }
 
 .contact-panel p {
   margin: 14px 0 24px;
+}
+
+.mini-project:nth-child(1) {
+  border-top: 4px solid var(--teal);
+}
+
+.mini-project:nth-child(2) {
+  border-top: 4px solid var(--blue);
+}
+
+.mini-project:nth-child(3) {
+  border-top: 4px solid var(--amber);
 }
 
 @media (max-width: 900px) {

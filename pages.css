@@ -8,8 +8,8 @@
   gap: clamp(36px, 8vw, 110px);
   align-items: end;
   padding: clamp(70px, 10vw, 120px) clamp(20px, 8vw, 112px);
-  border-bottom: 1px solid var(--line);
-  background: #edf4f2;
+  border-bottom: 1px solid var(--ink);
+  background: #dbe9e5;
 }
 
 .page-hero h1 {
@@ -58,6 +58,9 @@
 .document-section h2 {
   font-size: 1rem;
   line-height: 1.2;
+  color: var(--cardinal);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -109,7 +112,7 @@
 .skill-group {
   padding: 20px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 2px;
   background: white;
 }
 
@@ -166,7 +169,11 @@
 
 .case-facts dt {
   color: var(--teal-dark);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.72rem;
   font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .case-facts dd {

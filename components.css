@@ -1,50 +1,66 @@
 .pathway-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  gap: 10px;
 }
 
 .pathway-card {
   position: relative;
-  min-height: 300px;
+  min-height: 360px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   overflow: hidden;
-  padding: 26px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  padding: 28px;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
   background: var(--panel);
 }
 
+.pathway-card:first-child {
+  color: white;
+  background: var(--graphite);
+}
+
+.pathway-card:first-child .tag,
+.pathway-card:first-child .pathway-link {
+  color: #8ce1d9;
+}
+
 .pathway-card:nth-child(2) {
-  border-top-color: var(--amber);
+  background: #e8eef8;
 }
 
 .pathway-card:nth-child(3) {
-  border-top-color: var(--cardinal);
+  background: #f6e8eb;
 }
 
 .pathway-card:hover {
-  border-color: var(--teal);
-  box-shadow: 0 16px 42px rgba(24, 39, 38, 0.1);
-  transform: translateY(-3px);
+  border-color: var(--cardinal);
+  box-shadow: 0 20px 54px rgba(21, 29, 28, 0.16);
+  transform: translateY(-7px);
 }
 
 .pathway-index {
   align-self: flex-end;
-  color: #b7c3c1;
-  font-size: 2.5rem;
-  font-weight: 800;
+  color: currentColor;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 4.8rem;
+  font-weight: 500;
+  line-height: 0.8;
+  opacity: 0.22;
 }
 
 .pathway-card .tag {
-  margin-top: 28px;
+  margin-top: 52px;
 }
 
 .pathway-card h3 {
   max-width: 330px;
-  margin-top: 16px;
+  margin-top: 18px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.45rem, 2.4vw, 2.15rem);
+  font-weight: 500;
 }
 
 .pathway-link {
@@ -64,7 +80,7 @@
 .mini-project {
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 2px;
   background: var(--panel);
 }
 
@@ -82,7 +98,16 @@ summary::-webkit-details-marker {
   grid-template-columns: minmax(130px, 0.35fr) minmax(220px, 0.7fr) minmax(280px, 1fr);
   gap: 24px;
   align-items: center;
-  padding: 24px;
+  padding: 25px 24px;
+  border-left: 5px solid var(--teal);
+}
+
+.research-card:nth-child(2) summary {
+  border-left-color: var(--blue);
+}
+
+.research-card:nth-child(3) summary {
+  border-left-color: var(--cardinal);
 }
 
 .research-card summary::after,
@@ -102,8 +127,9 @@ details[open] > summary::after {
 }
 
 .summary-title {
-  font-size: 1.15rem;
-  font-weight: 800;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 600;
 }
 
 .summary-copy,
@@ -135,6 +161,10 @@ details[open] > summary::after {
   display: block;
   margin-bottom: 10px;
   color: var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .context-link {
@@ -147,7 +177,7 @@ details[open] > summary::after {
   grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 2px;
   background: var(--graphite);
   box-shadow: var(--shadow);
 }
@@ -176,12 +206,31 @@ details[open] > summary::after {
 
 .project-copy h3 {
   margin-top: 18px;
-  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.4rem, 4.8vw, 4.6rem);
+  font-weight: 500;
+  line-height: 0.94;
 }
 
 .project-copy > p {
   margin-top: 20px;
   color: #c8d3d1;
+}
+
+.project-copy .process-note {
+  margin-top: 24px;
+  padding: 16px 0;
+  border-block: 1px solid #51605e;
+  color: #c8d3d1;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.76rem;
+  line-height: 1.7;
+}
+
+.process-note strong {
+  display: block;
+  color: #8ce1d9;
+  text-transform: uppercase;
 }
 
 .project-copy .link-row a {
@@ -218,12 +267,12 @@ details[open] > summary::after {
 }
 
 .mini-project summary {
-  min-height: 155px;
+  min-height: 175px;
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 18px;
   align-content: start;
-  padding: 22px;
+  padding: 24px;
 }
 
 .mini-project summary .tag {
