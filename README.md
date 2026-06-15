@@ -6,6 +6,13 @@ genomics, medical imaging, and selected engineering projects.
 The site is static HTML and CSS. It is designed for deployment on Cloudflare
 Pages with security headers defined in `_headers`.
 
+Public pages:
+
+- `/` - research, projects, internship direction, and contact
+- `/resume.html` - privacy-reviewed public resume
+- `/three-body.html` - interactive reading platform case study
+- `/404.html` - custom not-found page
+
 ## Local preview
 
 ```powershell

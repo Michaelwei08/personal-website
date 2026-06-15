@@ -20,173 +20,265 @@
     <meta property="og:image" content="https://cpwei.qzz.io/assets/hero-ai-healthcare.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://cpwei.qzz.io/" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <link rel="manifest" href="site.webmanifest" />
-    <link rel="preload" href="assets/hero-ai-healthcare.png" as="image" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="sections.css" />
+    <link rel="preload" href="assets/hero-ai-healthcare.webp" as="image" type="image/webp" />
+    <link rel="stylesheet" href="styles.css?v=20260615" />
+    <link rel="stylesheet" href="sections.css?v=20260615" />
+    <link rel="stylesheet" href="components.css?v=20260615" />
+    <link rel="stylesheet" href="panels.css?v=20260615" />
   </head>
-  <body>
+  <body itemscope itemtype="https://schema.org/Person">
+    <meta itemprop="name" content="Chupeng Wei" />
+    <meta itemprop="url" content="https://cpwei.qzz.io/" />
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Chupeng Wei home">
         <span class="brand-mark">cp</span>
         <span>cpwei</span>
       </a>
       <nav aria-label="Primary navigation">
-        <a href="#work">Work</a>
         <a href="#research">Research</a>
         <a href="#projects">Projects</a>
+        <a href="#internship">Internship</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <img
-          class="hero-image"
-          src="assets/hero-ai-healthcare.png"
-          alt="Abstract computational healthcare visualization"
-        />
+        <picture>
+          <source srcset="assets/hero-ai-healthcare.webp" type="image/webp" />
+          <img
+            class="hero-image"
+            src="assets/hero-ai-healthcare.png"
+            width="1600"
+            height="900"
+            fetchpriority="high"
+            alt="Abstract computational healthcare visualization"
+          />
+        </picture>
         <div class="hero-scrim"></div>
         <div class="hero-content">
           <p class="eyebrow">Stanford undergraduate</p>
-          <h1 id="hero-title">
-            AI, healthcare, and computational science, built carefully.
-          </h1>
+          <h1 id="hero-title">Chupeng Wei</h1>
+          <p class="hero-statement">Building AI systems for healthcare and scientific discovery.</p>
           <p class="hero-copy">
-            I am Chupeng Wei, a Stanford undergraduate focused on medical AI,
-            biomedical data science, computational genomics, and medical
-            imaging.
+            I work across medical imaging, computational genomics, health data,
+            and interactive AI, turning research-heavy ideas into systems people
+            can inspect and use.
           </p>
           <div class="hero-actions" aria-label="Primary links">
-            <a class="button primary" href="#projects">View projects</a>
-            <a class="button secondary" href="#contact">Contact</a>
+            <a class="button primary" href="#pathways">Explore my work</a>
+            <a class="button secondary" href="resume.html">Public resume</a>
           </div>
         </div>
       </section>
 
       <section class="signal-strip" aria-label="Current focus">
         <div>
-          <span class="label">Direction</span>
-          <strong>AI healthcare internships</strong>
+          <span class="label">Research</span>
+          <strong>Imaging, genomics, health data</strong>
         </div>
         <div>
-          <span class="label">Base</span>
-          <strong>Stanford, California</strong>
+          <span class="label">Build</span>
+          <strong>Scientific software and interactive AI</strong>
         </div>
         <div>
-          <span class="label">Home</span>
-          <strong>cpwei.qzz.io</strong>
+          <span class="label">Looking for</span>
+          <strong>AI-healthcare research internships</strong>
         </div>
       </section>
 
-      <section id="work" class="section intro-grid">
-        <div>
+      <section id="pathways" class="section pathways-section">
+        <div class="section-heading">
           <p class="eyebrow">What I am building toward</p>
-          <h2>Public proof for research-heavy engineering.</h2>
+          <h2>Three ways into my work.</h2>
+          <p>
+            Start with research questions, inspect the systems I have built, or
+            see the kind of internship team where I hope to contribute next.
+          </p>
         </div>
-        <p>
-          My work sits between machine learning, healthcare data, computational
-          modeling, and scientific communication. This site is designed to
-          become the stable home for projects, public-safe research summaries,
-          and future demos.
-        </p>
+        <div class="pathway-grid">
+          <a class="pathway-card" href="#research">
+            <span class="pathway-index">01</span>
+            <span class="tag">Research</span>
+            <h3>Questions in imaging, cancer genomics, and health policy.</h3>
+            <span class="pathway-link">Open research &rarr;</span>
+          </a>
+          <a class="pathway-card" href="#projects">
+            <span class="pathway-index">02</span>
+            <span class="tag">Projects</span>
+            <h3>Interactive AI, scientific modeling, and data systems.</h3>
+            <span class="pathway-link">See projects &rarr;</span>
+          </a>
+          <a class="pathway-card" href="#internship">
+            <span class="pathway-index">03</span>
+            <span class="tag">Internship</span>
+            <h3>Past applied work and the problems I want to tackle next.</h3>
+            <span class="pathway-link">View direction &rarr;</span>
+          </a>
+        </div>
+      </section>
+
+      <section id="research" class="section section-tint">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Research</p>
+            <h2>What the work is, what I do, and why it matters.</h2>
+          </div>
+          <p>
+            These summaries stay intentionally public-safe. Open a card for the
+            research question, my current contribution, and the broader value.
+          </p>
+        </div>
+        <div class="research-stack">
+          <details class="research-card">
+            <summary>
+              <span class="tag">Medical imaging</span>
+              <span class="summary-title">Craig Levin Lab</span>
+              <span class="summary-copy">Reconstruction software and validation for molecular imaging.</span>
+            </summary>
+            <div class="detail-grid">
+              <p><strong>The question</strong>How can reconstruction software turn imperfect detector measurements into reliable medical images?</p>
+              <p><strong>My contribution</strong>Developing and testing MLAA reconstruction code, checking implementation behavior, and documenting validation results.</p>
+              <p><strong>Why it matters</strong>Better reconstruction can improve the fidelity and usefulness of molecular imaging while making more of the measured signal.</p>
+            </div>
+            <a class="context-link" href="https://med.stanford.edu/miil.html" rel="noreferrer">Molecular Imaging Instrumentation Laboratory &rarr;</a>
+          </details>
+          <details class="research-card">
+            <summary>
+              <span class="tag">Cancer genomics</span>
+              <span class="summary-title">Ash A. Alizadeh Lab</span>
+              <span class="summary-copy">Large-scale pattern identification in cancer genomic data.</span>
+            </summary>
+            <div class="detail-grid">
+              <p><strong>The question</strong>How can genomic patterns help characterize cancer and its response to therapy?</p>
+              <p><strong>My contribution</strong>Supporting pattern-identification and data-analysis workflows for large cancer-genomics datasets.</p>
+              <p><strong>Why it matters</strong>Computational genomics can support cancer detection, classification, monitoring, and future treatment strategies.</p>
+            </div>
+            <a class="context-link" href="https://med.stanford.edu/ash_alizadeh.html" rel="noreferrer">Alizadeh Lab at Stanford Medicine &rarr;</a>
+          </details>
+          <details class="research-card">
+            <summary>
+              <span class="tag">Health policy data</span>
+              <span class="summary-title">SIEPR Medicaid research</span>
+              <span class="summary-copy">SQL-based investigation of policy-relevant healthcare data.</span>
+            </summary>
+            <div class="detail-grid">
+              <p><strong>The question</strong>Where do Medicaid records reveal gaps, irregularities, or policy-relevant patterns for disabled people and children?</p>
+              <p><strong>My contribution</strong>Using SQL to validate data, construct analyses, and investigate patterns that require careful interpretation.</p>
+              <p><strong>Why it matters</strong>Reliable evidence is a prerequisite for better health-policy decisions and more equitable access.</p>
+            </div>
+            <a class="context-link" href="https://siepr.stanford.edu/programs/undergraduate-student-opportunities/undergraduate-research-fellows-program" rel="noreferrer">SIEPR Undergraduate Research Fellows &rarr;</a>
+          </details>
+        </div>
       </section>
 
       <section id="projects" class="section">
         <div class="section-heading">
-          <p class="eyebrow">Flagship project</p>
-          <h2>Interactive Three-Body reading platform</h2>
+          <p class="eyebrow">Projects</p>
+          <h2>Systems you can inspect, not just claims on a page.</h2>
         </div>
-        <article class="feature">
-          <div class="feature-main">
+        <article class="project-feature">
+          <figure class="project-media">
+            <img src="assets/three-body-project.webp" width="1280" height="720" loading="lazy" alt="Three-Body interactive platform showing a live three-body simulation and narrative interface" />
+          </figure>
+          <div class="project-copy">
             <span class="tag">Next.js + Three.js + LLM agents</span>
-            <h3>An interactive platform for The Three-Body Problem.</h3>
+            <h3>Interactive Three-Body reading platform</h3>
             <p>
-              A college final project that turns Book I into a participatory
-              narrative space: character agents, shared memory, forced timeline
-              events, rewindable decisions, and a live three-body simulation.
+              A participatory Book I narrative with four character perspectives,
+              shared cross-character memory, forced timeline events, rewindable
+              decisions, and a live Newtonian three-body simulation.
             </p>
+            <dl class="project-facts">
+              <div><dt>4</dt><dd>character perspectives</dd></div>
+              <div><dt>10</dt><dd>turn timeline cadence</dd></div>
+              <div><dt>5</dt><dd>turn context compaction</dd></div>
+            </dl>
             <div class="link-row">
-              <a href="#contact">Ask for demo access</a>
-              <span>Public launch prepared with API access-code safety.</span>
+              <a href="three-body.html">Read the case study &rarr;</a>
+              <a href="mailto:cpwei@stanford.edu?subject=Three-Body%20demo%20request">Request demo access</a>
             </div>
           </div>
-          <div class="feature-aside">
-            <span class="metric">4</span>
-            <span>character perspectives</span>
-            <span class="metric">10</span>
-            <span>turn cadence for timeline events</span>
-            <span class="metric">5</span>
-            <span>turn context compaction interval</span>
-          </div>
         </article>
-      </section>
-
-      <section id="research" class="section">
-        <div class="section-heading">
-          <p class="eyebrow">Research and experience</p>
-          <h2>Healthcare, data, and scientific computing.</h2>
-        </div>
-        <div class="cards">
-          <article>
-            <span class="tag">Medical imaging</span>
-            <h3>Craig Levin Lab</h3>
-            <p>
-              Working on MLAA code development for medical image reconstruction
-              and validation, using public-safe high-level project wording.
-            </p>
-          </article>
-          <article>
-            <span class="tag">Cancer genomics</span>
-            <h3>Ash A. Alizadeh Lab</h3>
-            <p>
-              Contributing to genome pattern identification and cancer
-              genomics-related data analysis.
-            </p>
-          </article>
-          <article>
-            <span class="tag">Health policy data</span>
-            <h3>SIEPR Medicaid research</h3>
-            <p>
-              Using SQL to identify patterns and data issues relevant to
-              disabled people and children.
-            </p>
-          </article>
-          <article>
-            <span class="tag">Applied AI</span>
-            <h3>Tencent AI assistant</h3>
-            <p>
-              Built real-time motion detection, gesture comparison, auditory
-              feedback, and customizable gesture features.
-            </p>
-          </article>
+        <div class="mini-projects" aria-label="Additional projects">
+          <details class="mini-project">
+            <summary><span class="tag">Machine learning</span><span class="summary-title">Astronomical object classification</span></summary>
+            <p>Built neural-network and random-forest classifiers for stars, quasars, and galaxies using Gaia DR3 and SDSS data. Selected as a CCIR Student Research Spotlight.</p>
+            <a href="https://www.youtube.com/watch?v=aosEYTlsLwA" rel="noreferrer">Watch the project interview &rarr;</a>
+          </details>
+          <details class="mini-project">
+            <summary><span class="tag">Computational astronomy</span><span class="summary-title">Forming planets through gas dynamics</span></summary>
+            <p>Applied a 3D model to protoplanetary-disk velocity data and analyzed residual substructures that could indicate planet candidates.</p>
+          </details>
+          <details class="mini-project">
+            <summary><span class="tag">Scientific modeling</span><span class="summary-title">Sonoluminescence simulation</span></summary>
+            <p>Modeled light produced by ultrasonic bubbles and explored control strategies with possible biomedical and environmental applications. Honorable Mention, S.-T. Yau High School Science Award.</p>
+          </details>
         </div>
       </section>
 
-      <section class="section compact">
+      <section id="internship" class="section internship-section">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Internship direction</p>
+            <h2>Applied experience, then the next problem.</h2>
+          </div>
+          <p>I am looking for undergraduate research or engineering roles where AI is close to real biomedical data, scientific constraints, and human outcomes.</p>
+        </div>
+        <div class="internship-grid">
+          <div class="experience-list">
+            <article>
+              <span class="tag">Applied AI</span>
+              <h3>LLM development intern, Tencent</h3>
+              <p>Built real-time motion detection, gesture comparison, auditory feedback, and user-defined gesture features for an AI exercise assistant.</p>
+            </article>
+            <article>
+              <span class="tag">Clinical imaging</span>
+              <h3>Imaging technician intern</h3>
+              <p>Supported CT and digital-radiography workflows, patient positioning, and high-volume hospital imaging operations.</p>
+            </article>
+          </div>
+          <div class="target-panel">
+            <span class="tag">What I am looking for</span>
+            <h3>Teams connecting machine learning with biomedical discovery or care.</h3>
+            <p>I am especially interested in medical imaging, computational genomics, biomedical data science, clinical machine learning, and research engineering.</p>
+            <ul class="interest-list">
+              <li>Research code that must be validated, not merely demonstrated</li>
+              <li>Large, messy biomedical or healthcare datasets</li>
+              <li>Models whose outputs need scientific or clinical interpretation</li>
+              <li>Bay Area preferred; open to opportunities across the United States</li>
+            </ul>
+            <a class="text-link" href="mailto:cpwei@stanford.edu?subject=AI-healthcare%20internship%20conversation">Start an internship conversation &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="resume-band" aria-labelledby="resume-title">
         <div>
-          <p class="eyebrow">Selected project directions</p>
-          <h2>More than a resume page.</h2>
+          <p class="eyebrow">Public resume</p>
+          <h2 id="resume-title">Education, research, experience, and technical skills.</h2>
         </div>
-        <ul class="project-list">
-          <li>Biomedical dataset quality dashboards using public datasets</li>
-          <li>Medical imaging reconstruction explainers with synthetic data</li>
-          <li>AI-healthcare paper maps and internship/company intelligence</li>
-          <li>Scientific machine learning demos from astronomy and physics work</li>
-        </ul>
+        <a class="button light" href="resume.html">View public resume</a>
       </section>
 
       <section id="contact" class="section contact">
-        <div>
+        <div class="contact-intro">
           <p class="eyebrow">Contact</p>
-          <h2>Reach me for AI-healthcare, biomedical data, and research demos.</h2>
+          <h2>Reach me for AI-healthcare research, internships, or project demos.</h2>
+          <p>I am glad to talk with research groups, early-stage teams, and collaborators working where machine learning meets biomedical evidence.</p>
         </div>
-        <div class="contact-links">
-          <a href="mailto:cpwei@stanford.edu">cpwei@stanford.edu</a>
-          <a
-            href="https://www.linkedin.com/in/chupeng-wei-10a9a9359"
-            rel="me noreferrer"
-          >LinkedIn</a>
+        <div class="contact-panel">
+          <span class="tag">Best fit</span>
+          <p>Medical imaging, computational genomics, biomedical data systems, clinical ML, and research engineering.</p>
+          <div class="contact-links">
+            <a href="mailto:cpwei@stanford.edu?subject=AI-healthcare%20conversation">Email Chupeng</a>
+            <a href="https://www.linkedin.com/in/chupeng-wei-10a9a9359" rel="me noreferrer">LinkedIn</a>
+            <a href="resume.html">Public resume</a>
+          </div>
         </div>
       </section>
     </main>

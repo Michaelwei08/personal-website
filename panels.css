@@ -1,0 +1,123 @@
+.internship-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(320px, 1.15fr);
+  gap: 16px;
+}
+
+.experience-list {
+  display: grid;
+  gap: 16px;
+}
+
+.experience-list article,
+.target-panel,
+.contact-panel {
+  padding: clamp(24px, 4vw, 38px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.experience-list h3,
+.target-panel h3 {
+  margin-top: 16px;
+}
+
+.experience-list p,
+.target-panel p {
+  margin-top: 12px;
+}
+
+.target-panel {
+  border-top: 4px solid var(--cardinal);
+}
+
+.interest-list {
+  margin: 24px 0;
+  padding-left: 20px;
+}
+
+.interest-list li + li {
+  margin-top: 10px;
+}
+
+.resume-band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 54px clamp(20px, 6vw, 76px);
+  color: white;
+  background: var(--teal-dark);
+}
+
+.resume-band .eyebrow {
+  color: #b9eeea;
+}
+
+.resume-band h2 {
+  max-width: 760px;
+  margin-top: 10px;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+}
+
+.button.light {
+  flex: 0 0 auto;
+  color: var(--teal-dark);
+  background: white;
+}
+
+.contact-panel {
+  align-self: center;
+  color: var(--ink);
+}
+
+.contact-panel p {
+  margin: 14px 0 24px;
+}
+
+@media (max-width: 900px) {
+  .pathway-grid,
+  .mini-projects,
+  .detail-grid,
+  .project-feature,
+  .internship-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pathway-card {
+    min-height: 230px;
+  }
+
+  .research-card summary {
+    grid-template-columns: 1fr auto;
+  }
+
+  .research-card summary > * {
+    grid-column: 1;
+  }
+
+  .research-card summary::after {
+    grid-column: 2;
+    grid-row: 1 / 4;
+  }
+
+  .project-media {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 560px) {
+  .project-media {
+    min-height: 240px;
+  }
+
+  .project-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-band {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

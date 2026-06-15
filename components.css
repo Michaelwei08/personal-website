@@ -1,0 +1,247 @@
+.pathway-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.pathway-card {
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.pathway-card:nth-child(2) {
+  border-top-color: var(--amber);
+}
+
+.pathway-card:nth-child(3) {
+  border-top-color: var(--cardinal);
+}
+
+.pathway-card:hover {
+  border-color: var(--teal);
+  box-shadow: 0 16px 42px rgba(24, 39, 38, 0.1);
+  transform: translateY(-3px);
+}
+
+.pathway-index {
+  align-self: flex-end;
+  color: #b7c3c1;
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.pathway-card .tag {
+  margin-top: 28px;
+}
+
+.pathway-card h3 {
+  max-width: 330px;
+  margin-top: 16px;
+}
+
+.pathway-link {
+  margin-top: auto;
+  padding-top: 30px;
+  color: var(--teal-dark);
+  font-weight: 750;
+}
+
+.research-stack,
+.mini-projects {
+  display: grid;
+  gap: 12px;
+}
+
+.research-card,
+.mini-project {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.research-card summary {
+  display: grid;
+  grid-template-columns: minmax(130px, 0.35fr) minmax(220px, 0.7fr) minmax(280px, 1fr);
+  gap: 24px;
+  align-items: center;
+  padding: 24px;
+}
+
+.research-card summary::after,
+.mini-project summary::after {
+  content: "+";
+  color: var(--teal-dark);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.research-card summary::after {
+  grid-column: 4;
+}
+
+details[open] > summary::after {
+  content: "-";
+}
+
+.summary-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.summary-copy,
+.research-card p,
+.mini-project p,
+.project-copy p,
+.experience-list p,
+.target-panel p,
+.interest-list,
+.contact-panel p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  border-top: 1px solid var(--line);
+  background: var(--line);
+}
+
+.detail-grid p {
+  padding: 24px;
+  background: var(--panel);
+}
+
+.detail-grid strong {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+
+.context-link {
+  display: inline-block;
+  margin: 20px 24px 24px;
+}
+
+.project-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--graphite);
+  box-shadow: var(--shadow);
+}
+
+.project-media {
+  min-height: 440px;
+  margin: 0;
+  background: #050b12;
+}
+
+.project-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.project-copy {
+  padding: clamp(28px, 5vw, 52px);
+  color: white;
+}
+
+.project-copy .tag {
+  color: #80d8d2;
+}
+
+.project-copy h3 {
+  margin-top: 18px;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+}
+
+.project-copy > p {
+  margin-top: 20px;
+  color: #c8d3d1;
+}
+
+.project-copy .link-row a {
+  color: #80d8d2;
+}
+
+.project-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 30px 0 0;
+}
+
+.project-facts div {
+  border-top: 1px solid #51605e;
+  padding-top: 14px;
+}
+
+.project-facts dt {
+  color: #80d8d2;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.project-facts dd {
+  margin: 5px 0 0;
+  color: #c8d3d1;
+  font-size: 0.82rem;
+}
+
+.mini-projects {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 16px;
+}
+
+.mini-project summary {
+  min-height: 155px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-content: start;
+  padding: 22px;
+}
+
+.mini-project summary .tag {
+  grid-column: 1;
+}
+
+.mini-project summary .summary-title {
+  grid-column: 1;
+  margin-top: 14px;
+}
+
+.mini-project summary::after {
+  grid-column: 2;
+  grid-row: 1 / 3;
+}
+
+.mini-project > p,
+.mini-project > a {
+  display: block;
+  margin: 0 22px 22px;
+}

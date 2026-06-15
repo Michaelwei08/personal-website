@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Three-Body Platform | Chupeng Wei</title>
+    <meta name="description" content="Case study for Chupeng Wei's interactive Three-Body reading platform, combining multi-agent narrative and a live physics simulation." />
+    <meta name="theme-color" content="#f7faf9" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Interactive Three-Body Reading Platform" />
+    <meta property="og:description" content="A participatory narrative system with multiple perspectives, persistent memory, and live Newtonian simulation." />
+    <meta property="og:url" content="https://cpwei.qzz.io/three-body.html" />
+    <meta property="og:image" content="https://cpwei.qzz.io/assets/three-body-project.webp" />
+    <link rel="canonical" href="https://cpwei.qzz.io/three-body.html" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="stylesheet" href="styles.css?v=20260615" />
+    <link rel="stylesheet" href="sections.css?v=20260615" />
+    <link rel="stylesheet" href="pages.css?v=20260615" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Chupeng Wei home"><span class="brand-mark">cp</span><span>cpwei</span></a>
+      <nav aria-label="Project navigation"><a href="index.html#projects">Projects</a><a href="resume.html">Resume</a><a href="index.html#contact">Contact</a></nav>
+    </header>
+    <main class="page-main">
+      <section class="page-hero">
+        <div><p class="eyebrow">Project case study</p><h1>Interactive Three-Body reading platform</h1></div>
+        <div><p class="page-hero-copy">A participatory narrative system that lets readers inhabit four perspectives while a shared timeline, persistent memory, and live physics simulation keep the world coherent.</p><div class="page-actions"><a href="mailto:cpwei@stanford.edu?subject=Three-Body%20demo%20request">Request demo access</a><a href="index.html#projects">All projects</a></div></div>
+      </section>
+      <figure class="case-visual"><img src="assets/three-body-project.webp" width="1280" height="720" alt="Three-Body platform with a live orbital simulation and narrative interface" /></figure>
+      <div class="document-shell">
+        <dl class="case-facts">
+          <div><dt>Role</dt><dd>Product design and full-stack development</dd></div>
+          <div><dt>Stack</dt><dd>Next.js, Three.js, LLM agents</dd></div>
+          <div><dt>Interaction</dt><dd>Four character perspectives</dd></div>
+          <div><dt>Core constraint</dt><dd>One coherent shared timeline</dd></div>
+        </dl>
+        <section class="case-layout"><h2>The problem</h2><div class="case-copy"><p>Branching stories often lose coherence as choices multiply. This project asks a different question: can a reader participate inside a complex narrative without breaking the causal structure that makes the world meaningful?</p><p>The system treats narrative continuity as an engineering constraint. Character knowledge, forced events, and physical state must remain aligned even as the reader changes perspective or rewinds a choice.</p></div></section>
+        <section class="case-layout"><h2>System design</h2><div class="case-copy"><ul><li>Four playable perspectives expose different knowledge and motivations.</li><li>Cross-character memory preserves consequences beyond a single conversation.</li><li>A controlled timeline cadence advances required world events.</li><li>Context compaction keeps long sessions tractable while retaining consequential state.</li><li>A live Newtonian three-body simulation gives the scientific premise a visible, inspectable form.</li></ul></div></section>
+        <section class="case-layout"><h2>What I learned</h2><div class="case-copy"><p>The interesting work was not simply connecting an interface to a language model. It was designing boundaries: what the model may improvise, what the timeline must enforce, which memories should persist, and how the visual simulation can clarify rather than decorate the experience.</p><p>That same discipline matters in scientific and healthcare AI, where outputs need constraints, provenance, and interfaces that help people inspect what the system is doing.</p></div></section>
+        <section class="case-layout"><h2>Current status</h2><div class="case-copy"><p>The prototype is functional and remains a private demonstration while deployment, content rights, and model-access boundaries are reviewed. A guided demo is available for research and internship conversations.</p><div class="page-actions"><a href="mailto:cpwei@stanford.edu?subject=Three-Body%20demo%20request">Request a guided demo &rarr;</a></div></div></section>
+        <a class="back-link" href="index.html#projects">&larr; Back to projects</a>
+      </div>
+    </main>
+    <footer><span>Chupeng Wei</span><span>Project case study</span></footer>
+  </body>
+</html>

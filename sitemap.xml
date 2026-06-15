@@ -2,6 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cpwei.qzz.io/</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-15</lastmod>
+  </url>
+  <url>
+    <loc>https://cpwei.qzz.io/resume.html</loc>
+    <lastmod>2026-06-15</lastmod>
+  </url>
+  <url>
+    <loc>https://cpwei.qzz.io/three-body.html</loc>
+    <lastmod>2026-06-15</lastmod>
   </url>
 </urlset>

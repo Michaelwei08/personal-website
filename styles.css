@@ -109,9 +109,7 @@ nav a:hover,
 }
 
 .hero-scrim {
-  background:
-    linear-gradient(90deg, rgba(247, 250, 249, 0.98), rgba(247, 250, 249, 0.86) 42%, rgba(247, 250, 249, 0.26)),
-    linear-gradient(180deg, rgba(247, 250, 249, 0.3), rgba(247, 250, 249, 0.86));
+  background: rgba(247, 250, 249, 0.76);
 }
 
 .hero-content {
@@ -154,9 +152,17 @@ h3 {
   line-height: 1.12;
 }
 
+.hero-statement {
+  max-width: 760px;
+  margin-top: 18px;
+  font-size: clamp(1.8rem, 3.6vw, 3.1rem);
+  font-weight: 780;
+  line-height: 1.05;
+}
+
 .hero-copy {
   max-width: 650px;
-  margin-top: 20px;
+  margin-top: 18px;
   color: var(--muted);
   font-size: clamp(1rem, 1.55vw, 1.18rem);
   line-height: 1.6;
@@ -185,4 +191,15 @@ h3 {
 .secondary {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.72);
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button:focus-visible,
+a:focus-visible,
+summary:focus-visible {
+  outline: 3px solid rgba(5, 127, 120, 0.34);
+  outline-offset: 4px;
 }
