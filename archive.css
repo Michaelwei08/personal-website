@@ -1,0 +1,234 @@
+.project-preview {
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+}
+
+.section-archive-link {
+  display: block;
+  width: fit-content;
+  margin-top: 8px;
+  font-weight: 800;
+}
+
+.project-preview .summary-title {
+  max-width: 310px;
+  margin-top: 20px;
+}
+
+.preview-metric {
+  margin-top: auto;
+  padding-top: 28px;
+  color: var(--teal-dark);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.archive-shell {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 76px 0 110px;
+}
+
+.archive-project {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+  margin-bottom: 26px;
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  background: white;
+  scroll-margin-top: 92px;
+}
+
+.archive-project:nth-child(even) .archive-visual {
+  order: 2;
+}
+
+.archive-visual {
+  min-height: 430px;
+  margin: 0;
+  background: var(--graphite);
+}
+
+.archive-visual img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.archive-project:not(#three-body) .archive-visual {
+  background: #edf3f1;
+}
+
+.archive-project:not(#three-body) .archive-visual img {
+  object-fit: contain;
+}
+
+.archive-copy {
+  padding: clamp(28px, 5vw, 52px);
+}
+
+.archive-copy h2 {
+  margin-top: 18px;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+}
+
+.archive-copy > p {
+  margin-top: 18px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.archive-evidence {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 28px 0;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.archive-evidence div {
+  padding: 16px;
+  background: var(--paper);
+}
+
+.archive-evidence strong,
+.archive-evidence span {
+  display: block;
+}
+
+.archive-evidence strong {
+  color: var(--teal-dark);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.6rem;
+}
+
+.archive-evidence span {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.project-notes {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.project-notes p {
+  color: var(--muted);
+  line-height: 1.58;
+}
+
+.project-notes strong {
+  color: var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.archive-link {
+  display: inline-block;
+  margin-top: 24px;
+  color: var(--teal-dark);
+  font-weight: 800;
+}
+
+.earlier-work {
+  padding: 76px 0 10px;
+  scroll-margin-top: 70px;
+}
+
+.earlier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.earlier-grid article {
+  min-height: 260px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--teal);
+  background: white;
+}
+
+.earlier-grid article:nth-child(2) {
+  border-top-color: var(--blue);
+}
+
+.earlier-grid article:nth-child(3) {
+  border-top-color: var(--amber);
+}
+
+.earlier-grid h3 {
+  margin-top: 18px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.55rem;
+}
+
+.earlier-grid p {
+  margin-top: 16px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.archive-principle {
+  display: grid;
+  grid-template-columns: 0.45fr 1fr;
+  gap: clamp(30px, 7vw, 90px);
+  margin-top: 88px;
+  padding: 54px;
+  color: white;
+  background: var(--graphite);
+}
+
+.archive-principle h2 {
+  font-size: clamp(2rem, 4vw, 3.6rem);
+}
+
+.archive-principle ol {
+  margin: 0;
+  padding-left: 22px;
+  color: #c8d3d1;
+  line-height: 1.7;
+}
+
+.archive-principle li + li {
+  margin-top: 12px;
+}
+
+@media (max-width: 850px) {
+  .archive-project,
+  .earlier-grid,
+  .archive-principle {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-project:nth-child(even) .archive-visual {
+    order: 0;
+  }
+
+  .archive-visual {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 520px) {
+  .archive-evidence {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-principle {
+    padding: 30px;
+  }
+}
