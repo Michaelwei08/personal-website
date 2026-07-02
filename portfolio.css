@@ -207,3 +207,28 @@ h2 {
 .chapter-no {
   color: var(--cardinal);
 }
+
+@media (max-width: 720px) {
+  .site-header,
+  .signal-strip {
+    position: static;
+  }
+
+  .site-header {
+    padding: 18px 24px 20px;
+  }
+
+  .signal-strip {
+    width: min(100% - 48px, 1152px);
+    margin-bottom: 28px;
+    padding: 0;
+    border-bottom: 0;
+    background: transparent;
+    backdrop-filter: none;
+  }
+
+  .signal-strip > div {
+    flex-basis: 100%;
+    border-radius: 28px;
+  }
+}
