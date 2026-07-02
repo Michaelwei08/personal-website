@@ -1,0 +1,204 @@
+.pathway-card,
+.project-feature,
+.mini-project,
+.experience-list article,
+.target-panel,
+.contact-panel,
+.archive-project,
+.archive-principle,
+.skill-group,
+.entry {
+  border: 1px solid var(--line);
+  border-radius: var(--round);
+  background: white;
+  box-shadow: 0 1px 0 rgba(41, 37, 36, 0.04);
+}
+
+.pathway-card {
+  min-height: 300px;
+  padding: 34px;
+}
+
+.pathway-card:first-child,
+.pathway-card:nth-child(2),
+.pathway-card:nth-child(3) {
+  color: var(--ink);
+  background: white;
+}
+
+.pathway-card:hover,
+.archive-project:hover,
+.mini-project:hover {
+  border-color: #d6d3d1;
+  box-shadow: var(--shadow);
+}
+
+.pathway-card .tag,
+.pathway-card:first-child .tag,
+.pathway-card:first-child .pathway-link {
+  color: #a8a29e;
+}
+
+.pathway-index {
+  color: #d6d3d1;
+}
+
+.pathway-link,
+.archive-link,
+.link-row a,
+.contact-links a,
+.text-link,
+.page-actions a,
+.back-link {
+  color: var(--ink);
+  font-weight: 850;
+}
+
+.project-feature {
+  grid-template-columns: 1fr;
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.project-media {
+  min-height: 0;
+  display: block;
+  background: #f5f5f4;
+}
+
+.page-main {
+  padding-top: 0;
+}
+
+.page-hero {
+  width: min(1152px, 100%);
+  margin: 0 auto;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+}
+
+.archive-shell {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.archive-project {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.archive-project#three-body,
+.archive-principle {
+  grid-column: 1 / -1;
+}
+
+.archive-project:nth-child(even) .archive-visual {
+  order: 0;
+}
+
+.archive-visual {
+  min-height: 0;
+  background: #f5f5f4;
+}
+
+.archive-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.archive-principle {
+  color: var(--ink);
+}
+
+.archive-principle ol {
+  color: var(--muted);
+}
+
+.project-copy {
+  color: var(--ink);
+}
+
+.project-copy .tag,
+.project-copy .link-row a {
+  color: #a8a29e;
+}
+
+.project-copy > p,
+.project-copy .process-note,
+.project-facts dd {
+  color: var(--muted);
+}
+
+.project-copy h3 {
+  color: var(--ink);
+}
+
+.project-copy .process-note,
+.project-facts div {
+  border-color: var(--line);
+}
+
+.project-facts dt {
+  color: var(--teal-dark);
+}
+
+.mini-projects {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project-preview {
+  min-height: 230px;
+  border-radius: 32px;
+}
+
+.internship-section,
+.contact {
+  background: transparent;
+}
+
+.target-panel,
+.contact,
+.contact h2 {
+  color: var(--ink);
+}
+
+.target-panel .tag,
+.target-panel .text-link,
+.contact .eyebrow,
+.contact .tag,
+.contact-links a {
+  color: #a8a29e;
+}
+
+.target-panel p,
+.target-panel .interest-list,
+.contact-intro > p:last-child,
+.contact-panel p {
+  color: var(--muted);
+}
+
+.resume-band {
+  width: min(1152px, calc(100% - 48px));
+  margin: 0 auto 44px;
+  border: 1px solid var(--line);
+  border-radius: var(--round);
+  background: white;
+}
+
+footer {
+  width: min(1152px, 100%);
+  margin: 0 auto;
+  color: #a8a29e;
+  background: transparent;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 850px) {
+  .archive-shell {
+    grid-template-columns: 1fr;
+  }
+}
