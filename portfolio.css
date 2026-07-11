@@ -89,9 +89,9 @@ nav a:hover {
 .label,
 .tag,
 .chapter-no {
-  color: #a8a29e;
+  color: var(--muted);
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-  font-size: 0.66rem;
+  font-size: 0.75rem;
   font-weight: 850;
   letter-spacing: 0.22em;
 }
@@ -149,14 +149,12 @@ h2 {
 .hero-index {
   position: static;
   margin-top: 56px;
-  color: #a8a29e;
+  color: var(--muted);
   border-top: 1px solid var(--line);
 }
 
 .signal-strip {
-  position: sticky;
-  top: 83px;
-  z-index: 12;
+  position: static;
   width: min(1152px, calc(100% - 48px));
   display: flex;
   flex-wrap: wrap;
@@ -178,7 +176,7 @@ h2 {
 }
 
 .signal-strip .label {
-  color: #a8a29e;
+  color: var(--muted);
 }
 
 .signal-strip strong {
@@ -208,11 +206,13 @@ h2 {
   color: var(--cardinal);
 }
 
-@media (max-width: 720px) {
-  .site-header,
-  .signal-strip {
+@media (max-width: 900px) {
+  .site-header {
     position: static;
   }
+}
+
+@media (max-width: 720px) {
 
   .site-header {
     padding: 18px 24px 20px;

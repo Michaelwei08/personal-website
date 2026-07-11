@@ -36,7 +36,7 @@
 .pathway-card .tag,
 .pathway-card:first-child .tag,
 .pathway-card:first-child .pathway-link {
-  color: #a8a29e;
+  color: var(--muted);
 }
 
 .pathway-index {
@@ -124,7 +124,7 @@
 
 .project-copy .tag,
 .project-copy .link-row a {
-  color: #a8a29e;
+  color: var(--muted);
 }
 
 .project-copy > p,
@@ -171,7 +171,7 @@
 .contact .eyebrow,
 .contact .tag,
 .contact-links a {
-  color: #a8a29e;
+  color: var(--muted);
 }
 
 .target-panel p,
@@ -192,7 +192,7 @@
 footer {
   width: min(1152px, 100%);
   margin: 0 auto;
-  color: #a8a29e;
+  color: var(--muted);
   background: transparent;
   border-top: 1px solid var(--line);
 }

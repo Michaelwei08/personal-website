@@ -12,3 +12,20 @@
 
 /assets/*
   Cache-Control: public, max-age=604800
+
+/styles.css
+  Cache-Control: public, max-age=604800, immutable
+/sections.css
+  Cache-Control: public, max-age=604800, immutable
+/components.css
+  Cache-Control: public, max-age=604800, immutable
+/panels.css
+  Cache-Control: public, max-age=604800, immutable
+/archive.css
+  Cache-Control: public, max-age=604800, immutable
+/portfolio.css
+  Cache-Control: public, max-age=604800, immutable
+/portfolio-cards.css
+  Cache-Control: public, max-age=604800, immutable
+/pages.css
+  Cache-Control: public, max-age=604800, immutable

@@ -36,6 +36,23 @@ a {
   text-decoration: none;
 }
 
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 10px 14px;
+  color: white;
+  background: var(--graphite);
+  border-radius: 999px;
+  font-weight: 750;
+  transform: translateY(-180%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 .site-header {
   position: fixed;
   inset: 0 0 auto;
@@ -235,9 +252,15 @@ h3 {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 .button:focus-visible,
 a:focus-visible,
 summary:focus-visible {
-  outline: 3px solid rgba(5, 127, 120, 0.34);
+  outline: 3px solid var(--teal-dark);
   outline-offset: 4px;
 }

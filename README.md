@@ -9,10 +9,10 @@ Pages with security headers defined in `_headers`.
 Public pages:
 
 - `/` - selected projects, internship direction, resume, and contact
-- `/projects.html` - selected project archive with evidence and next steps
-- `/resume.html` - privacy-reviewed public resume
-- `/three-body.html` - interactive reading platform case study
-- `/404.html` - custom not-found page
+- `/projects` - selected project archive with evidence and next steps
+- `/resume` - privacy-reviewed public resume
+- `/three-body` - interactive reading platform case study
+- unknown routes - custom not-found page
 
 ## Local preview
 

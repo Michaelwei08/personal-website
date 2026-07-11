@@ -5,45 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Selected Projects | Chupeng Wei</title>
     <meta name="description" content="Selected projects by Chupeng Wei: interactive AI, reinforcement-learning evaluation, and local research tools." />
-    <meta name="theme-color" content="#151d1c" />
+    <meta name="theme-color" content="#fafaf9" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Chupeng Wei" />
     <meta property="og:title" content="Selected Projects | Chupeng Wei" />
-    <meta property="og:description" content="A deliberately small portfolio of inspectable systems, evidence, process, and next steps." />
-    <meta property="og:url" content="https://cpwei.qzz.io/projects.html" />
-    <link rel="canonical" href="https://cpwei.qzz.io/projects.html" />
+    <meta property="og:description" content="A deliberately small portfolio of documented systems, evidence, process, and next steps." />
+    <meta property="og:url" content="https://cpwei.qzz.io/projects" />
+    <meta property="og:image" content="https://cpwei.qzz.io/assets/cpwei-social-card.jpg" />
+    <meta property="og:image:alt" content="Chupeng Wei — AI systems, evaluation and scientific software" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Selected Projects | Chupeng Wei" />
+    <meta name="twitter:description" content="A small portfolio of documented systems, evidence, process, and next steps." />
+    <meta name="twitter:image" content="https://cpwei.qzz.io/assets/cpwei-social-card.jpg" />
+    <meta name="twitter:image:alt" content="Chupeng Wei — AI systems, evaluation and scientific software" />
+    <link rel="canonical" href="https://cpwei.qzz.io/projects" />
     <link rel="icon" href="favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-    <link rel="stylesheet" href="styles.css?v=20260615c" />
-    <link rel="stylesheet" href="sections.css?v=20260615c" />
+    <link rel="stylesheet" href="styles.css?v=20260710a" />
+    <link rel="stylesheet" href="sections.css?v=20260710a" />
     <link rel="stylesheet" href="pages.css?v=20260615c" />
     <link rel="stylesheet" href="archive.css?v=20260615f" />
-    <link rel="stylesheet" href="portfolio.css?v=20260702b" />
-    <link rel="stylesheet" href="portfolio-cards.css?v=20260702a" />
+    <link rel="stylesheet" href="portfolio.css?v=20260710a" />
+    <link rel="stylesheet" href="portfolio-cards.css?v=20260710a" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Chupeng Wei home"><span class="brand-mark">cp</span><span>cpwei</span></a>
-      <nav aria-label="Project archive navigation"><a href="#featured">Featured</a><a href="resume.html">Resume</a><a href="index.html#contact">Contact</a></nav>
+      <a class="brand" href="/" aria-label="Chupeng Wei home"><span class="brand-mark">cp</span><span>cpwei</span></a>
+      <nav aria-label="Project archive navigation"><a href="#featured">Featured</a><a href="/resume">Resume</a><a href="/#contact">Contact</a></nav>
     </header>
-    <main class="page-main">
+    <main id="main-content" class="page-main" tabindex="-1">
       <section class="page-hero">
         <div><p class="eyebrow">Selected projects</p><h1>Systems, evidence, and what comes next.</h1></div>
-        <div><p class="page-hero-copy">I keep this page deliberately small. Each selected build has an inspectable artifact, evidence from real use or analysis, and a clear next experiment.</p><div class="page-actions"><a href="#featured">View selected work</a><a href="mailto:cpwei@stanford.edu?subject=Project%20conversation">Discuss a project</a></div></div>
+        <div><p class="page-hero-copy">I keep this page deliberately small. Each selected build is documented through design decisions, evidence from real use or analysis, and a clear next experiment.</p><div class="page-actions"><a href="#featured">View selected work</a><a href="mailto:cpwei@stanford.edu?subject=Project%20conversation">Discuss a project</a></div></div>
       </section>
       <div id="featured" class="archive-shell">
         <article class="archive-project" id="three-body">
           <figure class="archive-visual"><img src="assets/three-body-project.webp" width="1280" height="720" alt="Interactive Three-Body narrative platform" /></figure>
-          <div class="archive-copy"><span class="tag">Interactive AI + systems design</span><h2>Three-Body reading platform</h2><p>A participatory Book I experience with four perspectives, persistent cross-character memory, forced events, rewindable decisions, and a live Newtonian simulation.</p><div class="archive-evidence"><div><strong>4</strong><span>character perspectives</span></div><div><strong>10</strong><span>turn event cadence</span></div><div><strong>5</strong><span>turn context compaction</span></div></div><div class="project-notes"><p><strong>My work</strong> Backend architecture, LLM integration, prompt contracts, shared memory, World Book retrieval, and decision state.</p><p><strong>Next</strong> Structured user testing and a rights-safe public demonstration mode.</p></div><a class="archive-link" href="three-body.html">Read the full case study &rarr;</a></div>
+          <div class="archive-copy"><span class="tag">Interactive AI + systems design</span><h2>Three-Body reading platform</h2><p>A participatory Book I experience with four perspectives, persistent cross-character memory, forced events, rewindable decisions, and a live Newtonian simulation.</p><div class="archive-evidence"><div><strong>4</strong><span>character perspectives</span></div><div><strong>10</strong><span>turn event cadence</span></div><div><strong>5</strong><span>turn context compaction</span></div></div><div class="project-notes"><p><strong>My work</strong> Backend architecture, LLM integration, prompt contracts, shared memory, World Book retrieval, and decision state.</p><p><strong>Next</strong> Structured user testing and a rights-safe public demonstration mode.</p></div><a class="archive-link" href="/three-body">Read the full case study &rarr;</a></div>
         </article>
         <article class="archive-project" id="rl-reward">
-          <figure class="archive-visual"><img src="assets/rl-reward-evidence.webp" width="1200" height="720" loading="lazy" alt="Chart summarizing RL reward-signal validation evidence" /></figure>
+          <figure class="archive-visual"><img src="assets/rl-reward-evidence.webp" width="1200" height="720" loading="lazy" alt="Reward-signal comparison showing a best combined AUC of 0.767 across 220 trajectories" /></figure>
           <div class="archive-copy"><span class="tag">RL evaluation + data analysis</span><h2>Can prefix checks become useful rewards?</h2><p>Tested whether cheap prediction checks from partial agent trajectories align with eventual task success, then audited the cases where a clean metric would give the wrong answer.</p><div class="archive-evidence"><div><strong>220</strong><span>agent trajectories</span></div><div><strong>21</strong><span>counterexamples audited</span></div><div><strong>0.767</strong><span>best combined AUC</span></div></div><div class="project-notes"><p><strong>Finding</strong> Prediction checks are useful as a dense feature, but too brittle to serve as the whole reward.</p><p><strong>Next</strong> Validate goal-conditioned value differences on held-out trajectory prefixes.</p></div></div>
         </article>
         <article class="archive-project" id="paper-audio">
           <figure class="archive-visual"><img src="assets/paper-audio-pipeline.webp" width="1200" height="720" loading="lazy" alt="Pipeline from research-paper URL to Chinese summary and MP3 narration" /></figure>
           <div class="archive-copy"><span class="tag">Python CLI + local AI</span><h2>Paper to Chinese brief and MP3</h2><p>A local-first research utility that accepts an arXiv or PDF URL, extracts body paragraphs, summarizes them in Chinese, and exports readable Markdown plus narration.</p><div class="archive-evidence"><div><strong>35</strong><span>paragraphs in verified run</span></div><div><strong>63 KB</strong><span>Markdown output</span></div><div><strong>4.2 MB</strong><span>MP3 narration</span></div></div><div class="project-notes"><p><strong>Design choice</strong> Local Qwen summarization is the default; paid APIs remain optional.</p><p><strong>Next</strong> Add citation-aware chaptering and an evaluation set for summary fidelity.</p></div></div>
         </article>
-        <section class="archive-principle"><h2>Why these three stay.</h2><ol><li>Three-Body shows product thinking, interaction design, and multi-agent system architecture.</li><li>The RL project shows quantitative judgment, counterexample auditing, and comfort with messy evaluation signals.</li><li>Paper-to-MP3 shows practical local-AI tooling that turns a research workflow into something usable.</li><li>Ongoing research stays off the public site until there is a permission-safe artifact or result.</li></ol></section>
+        <section class="archive-principle"><h2>What these projects demonstrate.</h2><ol><li>Three-Body shows product thinking, interaction design, and multi-agent system architecture.</li><li>The RL project shows quantitative judgment, counterexample auditing, and comfort with messy evaluation signals.</li><li>Paper-to-MP3 shows practical local-AI tooling that turns a research workflow into something usable.</li></ol></section>
       </div>
     </main>
     <footer><span>Chupeng Wei</span><span>Selected projects</span></footer>
