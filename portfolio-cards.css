@@ -90,6 +90,7 @@
 }
 
 .archive-project#three-body,
+.archive-project#ultimate-tic-tac-toe,
 .archive-principle {
   grid-column: 1 / -1;
 }

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ultimate Tic-Tac-Toe | Chupeng Wei</title>
+    <meta name="description" content="Play Ultimate Tic-Tac-Toe against a browser-based search bot built by Chupeng Wei." />
+    <meta name="theme-color" content="#fafaf9" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Chupeng Wei" />
+    <meta property="og:title" content="Ultimate Tic-Tac-Toe | Chupeng Wei" />
+    <meta property="og:description" content="Nine local boards, one global line, and a search-powered opponent." />
+    <meta property="og:url" content="https://cpwei.qzz.io/ultimate-tic-tac-toe" />
+    <meta property="og:image" content="https://cpwei.qzz.io/assets/meta81-project.webp" />
+    <meta property="og:image:alt" content="META/81 Ultimate Tic-Tac-Toe game board" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="800" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ultimate Tic-Tac-Toe | Chupeng Wei" />
+    <meta name="twitter:description" content="Nine local boards, one global line, and a search-powered opponent." />
+    <meta name="twitter:image" content="https://cpwei.qzz.io/assets/meta81-project.webp" />
+    <link rel="canonical" href="https://cpwei.qzz.io/ultimate-tic-tac-toe" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="stylesheet" href="styles.css?v=20260730a" />
+    <link rel="stylesheet" href="portfolio.css?v=20260730a" />
+    <link rel="stylesheet" href="game.css?v=20260730a" />
+    <link rel="stylesheet" href="game-board.css?v=20260730a" />
+  </head>
+  <body>
+    <a class="skip-link" href="#game">Skip to game</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Chupeng Wei home"><span class="brand-mark">cp</span><span>cpwei</span></a>
+      <nav aria-label="Game navigation"><a href="/projects">Projects</a><a href="/resume">Resume</a><a href="/#contact">Contact</a></nav>
+    </header>
+
+    <main id="main-content" class="game-page-main">
+      <section class="game-hero">
+        <div>
+          <p class="eyebrow">Playable system · META/81</p>
+          <h1>Think locally.<br />Win globally.</h1>
+        </div>
+        <div class="game-hero-copy">
+          <p>Every move chooses the local board your opponent must enter next. Win three local boards in a row to claim the global board.</p>
+          <div class="page-actions"><a href="#game">Start a match</a><a href="/projects#ultimate-tic-tac-toe">Read the build note</a></div>
+        </div>
+      </section>
+
+      <section id="game" class="game-shell" aria-labelledby="game-title">
+        <aside class="game-controls">
+          <div>
+            <p class="game-kicker">Human vs search</p>
+            <h2 id="game-title">Ultimate<br />Tic-Tac-Toe</h2>
+            <p class="game-intro">Highlighted boards are legal. The numbered cell you choose routes the next player to that same numbered board.</p>
+          </div>
+
+          <dl class="game-score" aria-label="Match score">
+            <div><dt id="human-score">0</dt><dd>You</dd></div>
+            <div><dt id="bot-score">0</dt><dd>Bot</dd></div>
+            <div><dt id="draw-score">0</dt><dd>Draw</dd></div>
+          </dl>
+
+          <fieldset>
+            <legend>Your mark</legend>
+            <div class="game-segmented">
+              <button type="button" data-side="1" aria-pressed="true">X · first</button>
+              <button type="button" data-side="-1" aria-pressed="false">O · second</button>
+            </div>
+          </fieldset>
+
+          <label class="game-label" for="difficulty">Search depth</label>
+          <select id="difficulty">
+            <option value="casual">Casual</option>
+            <option value="focused" selected>Focused</option>
+            <option value="deep">Deep search</option>
+          </select>
+          <button id="new-game" class="game-primary" type="button">New match <span aria-hidden="true">&rarr;</span></button>
+
+          <div class="game-history">
+            <div class="game-history-head"><span>Move log</span><span id="move-count">00</span></div>
+            <ol id="move-list"><li class="empty-log">Your opening move sets the match in motion.</li></ol>
+          </div>
+        </aside>
+
+        <div class="game-stage">
+          <div class="game-status" role="status" aria-live="polite"><span id="status-dot" aria-hidden="true"></span><span id="status-text">Your move — any open board.</span></div>
+          <div id="board" class="global-board" aria-label="Ultimate Tic-Tac-Toe board"></div>
+          <div class="game-legend"><span><i></i>Available board</span><span>Cell chosen → next board</span></div>
+        </div>
+      </section>
+
+      <section class="game-notes" aria-label="How the system works">
+        <article><span>01</span><h2>Routing is the strategy.</h2><p>A move in cell five sends the opponent to board five. If that board is closed, they may play in any open board.</p></article>
+        <article><span>02</span><h2>Search stays on-device.</h2><p>The opponent uses Monte Carlo tree search in your browser. No account, tracking, or server game state is required.</p></article>
+        <article><span>03</span><h2>Local wins become global marks.</h2><p>Complete a line inside a local board to claim it. Three claimed boards in a row win the match.</p></article>
+      </section>
+    </main>
+
+    <footer><span>Chupeng Wei</span><span>Playable systems · META/81</span></footer>
+    <script type="module" src="/assets/game-app.js?v=20260730a"></script>
+  </body>
+</html>
