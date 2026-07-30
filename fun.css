@@ -1,0 +1,254 @@
+.fun-main {
+  padding-top: 94px;
+}
+
+.fun-hero,
+.fun-grid,
+.fun-note {
+  width: min(1152px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.fun-hero {
+  padding: clamp(72px, 10vw, 118px) 0 clamp(54px, 8vw, 88px);
+  border-bottom: 1px solid var(--line);
+}
+
+.fun-hero h1 {
+  max-width: 970px;
+  margin-top: 16px;
+  font-size: clamp(3.8rem, 9vw, 7.4rem);
+  line-height: 0.9;
+}
+
+.fun-hero > p:last-child {
+  max-width: 620px;
+  margin: 30px 0 0 auto;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.fun-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  padding: clamp(64px, 9vw, 104px) 0 30px;
+}
+
+.fun-grid-heading {
+  grid-column: 1 / -1;
+  max-width: 760px;
+  margin-bottom: 20px;
+}
+
+.fun-grid-heading h2 {
+  margin-top: 14px;
+  font-size: clamp(2.5rem, 5vw, 4.6rem);
+}
+
+.fun-card {
+  min-width: 0;
+  overflow: hidden;
+  color: inherit;
+  border: 1px solid var(--line);
+  border-radius: 36px;
+  background: white;
+  box-shadow: 0 20px 55px rgba(41, 37, 36, 0.06);
+}
+
+.fun-card.is-live {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+}
+
+a.fun-card {
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+a.fun-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.fun-visual {
+  min-height: 300px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #e7e5e4;
+}
+
+.fun-meta img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fun-copy {
+  padding: clamp(26px, 5vw, 48px);
+}
+
+.fun-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+
+.fun-index,
+.fun-code,
+.fun-status,
+.fun-action,
+.fun-note > span {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.fun-index,
+.fun-code {
+  color: var(--cardinal);
+  font-size: 0.68rem;
+}
+
+.fun-status {
+  padding: 7px 10px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.58rem;
+}
+
+.fun-status.live {
+  color: var(--teal-dark);
+  border-color: #99d8d1;
+  background: #e7f4f1;
+}
+
+.fun-status.private {
+  color: var(--amber);
+  border-color: #f2cf9e;
+  background: #fff7ed;
+}
+
+.fun-code {
+  margin-top: 54px;
+}
+
+.fun-card h3 {
+  margin-top: 10px;
+  font: 500 clamp(2rem, 4vw, 3.4rem)/0.98 Georgia, "Times New Roman", serif;
+}
+
+.fun-card p:not(.fun-code) {
+  max-width: 500px;
+  margin-top: 18px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.fun-action {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 34px;
+  padding-top: 16px;
+  color: var(--teal-dark);
+  border-top: 1px solid var(--line);
+  font-size: 0.67rem;
+}
+
+.fun-action.muted {
+  color: var(--muted);
+}
+
+.chess-visual {
+  grid-template-columns: repeat(4, 1fr);
+  color: #f5f5f4;
+  background:
+    linear-gradient(90deg, transparent 50%, rgba(255,255,255,.08) 50%) 0 0 / 25% 100%,
+    var(--ink);
+  font-size: clamp(2.6rem, 7vw, 5rem);
+}
+
+.jq-visual {
+  grid-template-columns: repeat(2, auto);
+  gap: 12px;
+  color: #fff7ed;
+  background:
+    radial-gradient(circle at 50% 130%, rgba(190,18,60,.65), transparent 48%),
+    #1c1917;
+  font: 500 clamp(3.6rem, 9vw, 6.4rem)/1 Georgia, serif;
+}
+
+.jq-visual small {
+  grid-column: 1 / -1;
+  color: #fdba74;
+  font: 800 0.72rem ui-monospace, monospace;
+  letter-spacing: 0.38em;
+}
+
+.fun-note {
+  display: grid;
+  grid-template-columns: minmax(140px, 0.25fr) minmax(0, 0.75fr);
+  gap: 30px;
+  margin-block: 48px 90px;
+  padding: 34px;
+  color: white;
+  border-radius: 30px;
+  background: var(--ink);
+}
+
+.fun-note > span {
+  color: #99d8d1;
+  font-size: 0.68rem;
+}
+
+.fun-note p {
+  max-width: 680px;
+  font: 500 clamp(1.45rem, 3vw, 2.4rem)/1.18 Georgia, "Times New Roman", serif;
+}
+
+@media (max-width: 800px) {
+  .fun-main {
+    padding-top: 0;
+  }
+
+  .fun-card.is-live,
+  .fun-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fun-grid-heading,
+  .fun-card.is-live {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 560px) {
+  .fun-hero,
+  .fun-grid,
+  .fun-note {
+    width: min(100% - 28px, 1152px);
+  }
+
+  .fun-card {
+    border-radius: 28px;
+  }
+
+  .fun-visual {
+    min-height: 230px;
+  }
+
+  .fun-code {
+    margin-top: 36px;
+  }
+
+  .fun-note {
+    grid-template-columns: 1fr;
+  }
+}

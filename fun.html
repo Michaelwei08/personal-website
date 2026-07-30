@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fun | Chupeng Wei</title>
+    <meta name="description" content="A small arcade of browser games and playable systems by Chupeng Wei." />
+    <meta name="theme-color" content="#fafaf9" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Chupeng Wei" />
+    <meta property="og:title" content="Fun | Chupeng Wei" />
+    <meta property="og:description" content="Playable experiments, search opponents, and games in progress." />
+    <meta property="og:url" content="https://cpwei.qzz.io/fun" />
+    <meta property="og:image" content="https://cpwei.qzz.io/assets/cpwei-social-card.jpg" />
+    <meta property="og:image:alt" content="Chupeng Wei — AI systems, evaluation and scientific software" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fun | Chupeng Wei" />
+    <meta name="twitter:description" content="Playable experiments, search opponents, and games in progress." />
+    <meta name="twitter:image" content="https://cpwei.qzz.io/assets/cpwei-social-card.jpg" />
+    <link rel="canonical" href="https://cpwei.qzz.io/fun" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="stylesheet" href="styles.css?v=20260710a" />
+    <link rel="stylesheet" href="portfolio.css?v=20260710a" />
+    <link rel="stylesheet" href="fun.css?v=20260730a" />
+  </head>
+  <body>
+    <a class="skip-link" href="#arcade">Skip to the games</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Chupeng Wei home"><span class="brand-mark">cp</span><span>cpwei</span></a>
+      <nav aria-label="Fun navigation"><a href="/projects">Projects</a><a href="/fun" aria-current="page">Fun</a><a href="/resume">Resume</a><a href="/#contact">Contact</a></nav>
+    </header>
+
+    <main id="main-content" class="fun-main" tabindex="-1">
+      <section class="fun-hero">
+        <p class="eyebrow">Fun / playable systems</p>
+        <h1>Choose your next<br />thinking game.</h1>
+        <p>Small games are a good place to explore search, uncertainty, and interface design. One is ready now; two more are taking shape.</p>
+      </section>
+
+      <section id="arcade" class="fun-grid" aria-labelledby="arcade-title">
+        <div class="fun-grid-heading">
+          <p class="eyebrow">The arcade</p>
+          <h2 id="arcade-title">Play now or peek at what comes next.</h2>
+        </div>
+
+        <a class="fun-card is-live" href="/ultimate-tic-tac-toe">
+          <div class="fun-visual fun-meta"><img src="assets/meta81-project.webp" width="1200" height="800" alt="META/81 Ultimate Tic-Tac-Toe board" /></div>
+          <div class="fun-copy">
+            <div class="fun-card-top"><span class="fun-index">01</span><span class="fun-status live">Playable now</span></div>
+            <p class="fun-code">META/81</p>
+            <h3>Ultimate Tic-Tac-Toe</h3>
+            <p>Nine local boards, one global line, and an on-device Monte Carlo search opponent.</p>
+            <span class="fun-action">Enter the board <b aria-hidden="true">→</b></span>
+          </div>
+        </a>
+
+        <article class="fun-card">
+          <div class="fun-visual chess-visual" aria-hidden="true"><span>♜</span><span>♞</span><span>♝</span><span>♛</span></div>
+          <div class="fun-copy">
+            <div class="fun-card-top"><span class="fun-index">02</span><span class="fun-status">Planned</span></div>
+            <p class="fun-code">CHESS/64</p>
+            <h3>Chess Lab</h3>
+            <p>A clean board, adjustable opponent, and an analysis view for understanding why a move works.</p>
+            <span class="fun-action muted">In the workshop</span>
+          </div>
+        </article>
+
+        <article class="fun-card jq-card">
+          <div class="fun-visual jq-visual" aria-hidden="true"><span>军</span><span>棋</span><small>暗战</small></div>
+          <div class="fun-copy">
+            <div class="fun-card-top"><span class="fun-index">03</span><span class="fun-status private">Private prototype</span></div>
+            <p class="fun-code">JQ/60</p>
+            <h3>军棋暗战指挥部</h3>
+            <p>Deploy in secret, reveal the flag when the commander falls, and face an information-set bot.</p>
+            <span class="fun-action muted">Public release later</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="fun-note">
+        <span>House rule</span>
+        <p>Every game should load quickly, explain itself clearly, and run without requiring an account.</p>
+      </section>
+    </main>
+
+    <footer><span>Chupeng Wei</span><span>Playable systems</span></footer>
+  </body>
+</html>

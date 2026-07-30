@@ -11,6 +11,7 @@ Public pages:
 
 - `/` - selected projects, internship direction, resume, and contact
 - `/projects` - selected project archive with evidence and next steps
+- `/fun` - game hub for playable systems and upcoming titles
 - `/resume` - privacy-reviewed public resume
 - `/three-body` - interactive reading platform case study
 - `/ultimate-tic-tac-toe` - playable game against an on-device search bot
