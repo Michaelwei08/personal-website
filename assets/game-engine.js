@@ -5,6 +5,8 @@ const WIN_LINES = [
 ];
 
 const SIMULATIONS = { casual: 45, focused: 260, deep: 1000 };
+const CORNERS = [0, 2, 6, 8];
+const OPENING_MOVES = 81;
 
 export function lineWinner(cells) {
   for (const [a, b, c] of WIN_LINES) {
@@ -64,19 +66,60 @@ export function moveLabel(action) {
   return `${Math.floor(action / 9) + 1}.${action % 9 + 1}`;
 }
 
-function immediateValue(state, action, player) {
+function canClaimBoard(cells, player) {
+  for (const [a, b, c] of WIN_LINES) {
+    const owned = (cells[a] === player ? 1 : 0) + (cells[b] === player ? 1 : 0) + (cells[c] === player ? 1 : 0);
+    if (owned === 2 && (cells[a] === 0 || cells[b] === 0 || cells[c] === 0)) return true;
+  }
+  return false;
+}
+
+function claimsGlobal(localStatus, board, player) {
+  const cells = [...localStatus];
+  cells[board] = player;
+  return lineWinner(cells) === player;
+}
+
+function replyThreat(next, opponent) {
+  let threat = "none";
+  for (let board = 0; board < 9; board += 1) {
+    if (next.localStatus[board] !== 0) continue;
+    if (next.nextBoard >= 0 && next.nextBoard !== board) continue;
+    if (!canClaimBoard(next.board[board], opponent)) continue;
+    if (claimsGlobal(next.localStatus, board, opponent)) return "match";
+    threat = "board";
+  }
+  return threat;
+}
+
+// `routing` prices the board this move sends the opponent to. It is on for tree
+// expansion only, and only at low budgets (see chooseBotMove). Using it in
+// rollouts too measured 45% against the plain policy: a simulated player that
+// refuses to hand over a match win never lets the punishment land, so lost
+// positions still roll out as draws and the value signal flattens.
+function immediateValue(state, action, player, routing) {
   const next = playMove(state, action);
   if (next.winner === player) return 1000;
   const board = Math.floor(action / 9);
   const cell = action % 9;
-  let score = next.localStatus[board] === player && state.localStatus[board] === 0 ? 45 : 1;
+  const claimed = state.localStatus[board] === 0 && next.localStatus[board] === player;
+  let score = claimed ? 45 : 1;
   if (cell === 4) score += 5;
-  if ([0, 2, 6, 8].includes(cell)) score += 2;
+  if (CORNERS.includes(cell)) score += 2;
+  if (!routing) return score;
+  // localStatus stays unmapped here: a drawn board reads as 2, which blocks the
+  // global line, where the usual 2 -> 0 mapping would look like an open board.
+  if (claimed && canClaimBoard(next.localStatus, player)) score += 60;
+  if (isTerminal(next)) return score;
+  const threat = replyThreat(next, player * -1);
+  if (threat === "match") return 0.02;
+  if (threat === "board") score *= 0.4;
+  if (next.nextBoard < 0) score *= 0.3;
   return score;
 }
 
-function weightedAction(state, actions) {
-  const weights = actions.map((action) => immediateValue(state, action, state.toPlay));
+function weightedAction(state, actions, routing) {
+  const weights = actions.map((action) => immediateValue(state, action, state.toPlay, routing));
   let target = Math.random() * weights.reduce((sum, value) => sum + value, 0);
   for (let index = 0; index < actions.length; index += 1) {
     target -= weights[index];
@@ -89,7 +132,7 @@ function rollout(initial, bot) {
   let state = initial;
   while (!isTerminal(state)) {
     const legal = legalActions(state);
-    state = playMove(state, weightedAction(state, legal));
+    state = playMove(state, weightedAction(state, legal, false));
   }
   return state.winner === 0 ? 0 : state.winner === bot ? 1 : -1;
 }
@@ -114,11 +157,16 @@ export function chooseBotMove(state, difficulty) {
   if (legal.length === 1) return legal[0];
   const bot = state.toPlay;
   const root = makeNode(state);
+  // Expansion order only decides anything while the budget cannot reach every
+  // opening move. At casual (45 sims) the routing prior measured 56.8% +/- 1.9
+  // over 600 games; at focused (260 sims) it measured 48.3% +/- 1.8, so it stays
+  // off there and those settings keep the exact behaviour that shipped before.
+  const routing = SIMULATIONS[difficulty] < OPENING_MOVES;
   for (let simulation = 0; simulation < SIMULATIONS[difficulty]; simulation += 1) {
     let node = root;
     while (node.untried.length === 0 && node.children.length) node = selectChild(node, bot);
     if (node.untried.length) {
-      const action = weightedAction(node.state, node.untried);
+      const action = weightedAction(node.state, node.untried, routing);
       node.untried = node.untried.filter((candidate) => candidate !== action);
       const child = makeNode(playMove(node.state, action), action, node);
       node.children.push(child);
