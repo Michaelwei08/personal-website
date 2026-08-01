@@ -5,7 +5,7 @@ import {
   moveLabel,
   newGame,
   playMove,
-} from "./game-engine.js";
+} from "./game-engine.js?rev=20260731a";
 
 const boardElement = document.querySelector("#board");
 const statusText = document.querySelector("#status-text");
