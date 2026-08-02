@@ -14,6 +14,7 @@ Public pages:
 - `/fun` - game hub for playable systems and upcoming titles
 - `/resume` - privacy-reviewed public resume
 - `/three-body` - interactive reading platform case study
+- `/three-body/demo/` - public, pre-generated interactive reading demo
 - `/ultimate-tic-tac-toe` - playable game against an on-device search bot
 - unknown routes - custom not-found page
 

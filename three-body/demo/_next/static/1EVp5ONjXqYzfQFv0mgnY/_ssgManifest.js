@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Fplay\u002F[character]","\u002Fplay\u002F[character]\u002Fend","\u002Fstory\u002F[character]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
