@@ -90,6 +90,12 @@
         "worker-src 'none'",
         "upgrade-insecure-requests"
       ]
+    },
+    {
+      "match": "/chess*",
+      "loc": "/chess",
+      "lastmod": "2026-08-11",
+      "scripts": true
     }
   ],
   "sitemap_order": [
@@ -102,7 +108,8 @@
     "/fun",
     "/heist",
     "/clinical-agent",
-    "/military"
+    "/military",
+    "/chess"
   ],
   "global_headers": [
     ["Cache-Control", "public, max-age=0, must-revalidate, no-transform"],
