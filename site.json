@@ -1,0 +1,144 @@
+{
+  "_comment": [
+    "Single source of truth for routes. tools/gen_config.py generates _headers and",
+    "sitemap.xml from this file. Adding a route used to mean editing three places by",
+    "hand and copy-pasting a 330-character CSP; now it means adding one entry here.",
+    "",
+    "'scripts': true grants that route script-src 'self'. Per D013/D016, each route",
+    "gets its own EXPLICIT full policy -- do not switch to a global policy plus",
+    "narrow overrides. Cloudflare applies every matching rule, and the intersection",
+    "of two CSPs is what blocked the game's module script in production on 2026-07-30.",
+    "",
+    "'sitemap': false keeps a route out of sitemap.xml but still gives it headers.",
+    "",
+    "'csp': [...] supplies a route's COMPLETE directive list verbatim, for routes",
+    "the shared template cannot express. Use it sparingly and keep the route's",
+    "match disjoint from any wildcard that would intersect it."
+  ],
+  "origin": "https://cpwei.qzz.io",
+  "routes": [
+    { "match": "/", "loc": "/", "lastmod": "2026-08-02" },
+    { "match": "/index.html", "sitemap": false },
+    { "match": "/projects*", "loc": "/projects", "lastmod": "2026-08-02" },
+    { "match": "/fun*", "loc": "/fun", "lastmod": "2026-08-02" },
+    { "match": "/resume*", "loc": "/resume", "lastmod": "2026-08-02" },
+    { "match": "/three-body", "loc": "/three-body", "lastmod": "2026-08-02" },
+    {
+      "_why": [
+        "EXACT '/three-body', not '/three-body*'. The wildcard also matches",
+        "/three-body/demo/... and Cloudflare intersects every matching rule, so",
+        "the wildcard's script-src 'none' would override the demo's own policy",
+        "and kill the bundled Next.js app -- the same intersection that broke",
+        "production on 2026-07-30. Keep these two rules disjoint.",
+        "The demo needs unsafe-inline (Next.js inline bootstrap), blob: workers",
+        "and data: images, which 'scripts': true cannot express, so it carries a",
+        "full explicit 'csp' list. Mirrors what is deployed on origin/main."
+      ],
+      "match": "/three-body/demo*",
+      "loc": "/three-body/demo/",
+      "lastmod": "2026-08-01",
+      "csp": [
+        "default-src 'self'",
+        "base-uri 'self'",
+        "connect-src 'self'",
+        "font-src 'self'",
+        "form-action 'self'",
+        "frame-ancestors 'none'",
+        "frame-src 'none'",
+        "img-src 'self' data:",
+        "manifest-src 'self'",
+        "media-src 'none'",
+        "object-src 'none'",
+        "script-src 'self' 'unsafe-inline'",
+        "style-src 'self' 'unsafe-inline'",
+        "worker-src 'self' blob:",
+        "upgrade-insecure-requests"
+      ]
+    },
+    { "match": "/404.html", "sitemap": false },
+    {
+      "match": "/ultimate-tic-tac-toe*",
+      "loc": "/ultimate-tic-tac-toe",
+      "lastmod": "2026-08-02",
+      "scripts": true
+    },
+    { "match": "/heist*", "loc": "/heist", "lastmod": "2026-08-07", "scripts": true },
+    {
+      "match": "/clinical-agent*",
+      "loc": "/clinical-agent",
+      "lastmod": "2026-08-06",
+      "scripts": true
+    },
+    {
+      "match": "/military*",
+      "loc": "/military",
+      "lastmod": "2026-08-10",
+      "csp": [
+        "default-src 'none'",
+        "base-uri 'none'",
+        "connect-src 'none'",
+        "font-src 'self'",
+        "form-action 'none'",
+        "frame-ancestors 'none'",
+        "frame-src 'none'",
+        "img-src 'self'",
+        "manifest-src 'none'",
+        "media-src 'none'",
+        "object-src 'none'",
+        "script-src 'self' 'unsafe-inline'",
+        "style-src 'self' 'unsafe-inline'",
+        "worker-src 'none'",
+        "upgrade-insecure-requests"
+      ]
+    }
+  ],
+  "sitemap_order": [
+    "/",
+    "/resume",
+    "/three-body",
+    "/three-body/demo/",
+    "/projects",
+    "/ultimate-tic-tac-toe",
+    "/fun",
+    "/heist",
+    "/clinical-agent",
+    "/military"
+  ],
+  "global_headers": [
+    ["Cache-Control", "public, max-age=0, must-revalidate, no-transform"],
+    ["Cross-Origin-Opener-Policy", "same-origin"],
+    ["Cross-Origin-Resource-Policy", "same-origin"],
+    [
+      "Permissions-Policy",
+      "browsing-topics=(), camera=(), geolocation=(), microphone=(), payment=(), usb=()"
+    ],
+    ["Referrer-Policy", "no-referrer"],
+    ["Strict-Transport-Security", "max-age=31536000"],
+    ["X-Content-Type-Options", "nosniff"],
+    ["X-Frame-Options", "DENY"],
+    ["X-Permitted-Cross-Domain-Policies", "none"]
+  ],
+  "csp_directives": [
+    "default-src 'none'",
+    "base-uri 'none'",
+    "connect-src 'none'",
+    "font-src 'none'",
+    "form-action 'none'",
+    "frame-ancestors 'none'",
+    "frame-src 'none'",
+    "img-src 'self'",
+    "manifest-src 'self'",
+    "media-src 'none'",
+    "object-src 'none'",
+    "script-src {script_src}",
+    "style-src 'self'",
+    "worker-src 'none'",
+    "upgrade-insecure-requests"
+  ],
+  "asset_cache": "public, max-age=604800",
+  "extra_cache_rules": [
+    ["/military/assets/*", "public, max-age=604800, immutable"],
+    ["/military/fonts/*", "public, max-age=604800, immutable"]
+  ],
+  "stylesheet_cache": "public, max-age=604800, immutable"
+}

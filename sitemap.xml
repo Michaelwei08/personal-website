@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cpwei.qzz.io/</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-08-02</lastmod>
   </url>
   <url>
     <loc>https://cpwei.qzz.io/resume</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-08-02</lastmod>
   </url>
   <url>
     <loc>https://cpwei.qzz.io/three-body</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-08-02</lastmod>
   </url>
   <url>
     <loc>https://cpwei.qzz.io/three-body/demo/</loc>
@@ -18,15 +18,23 @@
   </url>
   <url>
     <loc>https://cpwei.qzz.io/projects</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-02</lastmod>
   </url>
   <url>
     <loc>https://cpwei.qzz.io/ultimate-tic-tac-toe</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-02</lastmod>
   </url>
   <url>
     <loc>https://cpwei.qzz.io/fun</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-02</lastmod>
+  </url>
+  <url>
+    <loc>https://cpwei.qzz.io/heist</loc>
+    <lastmod>2026-08-07</lastmod>
+  </url>
+  <url>
+    <loc>https://cpwei.qzz.io/clinical-agent</loc>
+    <lastmod>2026-08-06</lastmod>
   </url>
   <url>
     <loc>https://cpwei.qzz.io/military</loc>

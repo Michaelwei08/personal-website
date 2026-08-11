@@ -1,3 +1,4 @@
+.backup/
 .verify/
 CONTINUITY.md
 .env
@@ -7,5 +8,11 @@ CONTINUITY.md
 *.pem
 *.p12
 *.log
+__pycache__/
+*.py[cod]
 .DS_Store
 Thumbs.db
+
+# tool backups (Cloudflare Pages deploys the whole repo)
+*.bak
+*.bak[0-9]*

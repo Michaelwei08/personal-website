@@ -1,0 +1,108 @@
+/* agent-trace.css - the episode trace: numbered steps, the coloured left rail
+   that marks enforcement vs over-reach vs leak, tool-call chips, and the
+   "why this is safe" disclosure. Loaded after agent-panel.css. */
+
+.agent-trace {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.agent-trace > li {
+  padding: 16px 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--line);
+  border-radius: 16px;
+}
+.agent-trace .agent-empty {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+/* The left rail carries the whole story at a glance: teal = the guard acted,
+   amber = scope over-reach, cardinal = something unsafe happened. */
+.agent-trace > li[data-kind="guard"] {
+  border-left-color: var(--teal);
+}
+.agent-trace > li[data-kind="blocked"] {
+  border-left-color: var(--amber);
+}
+.agent-trace > li[data-kind="danger"] {
+  border-left-color: var(--cardinal);
+}
+
+.agent-step-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.agent-step-num {
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+}
+.agent-step-title {
+  font-size: 0.96rem;
+  font-weight: 750;
+}
+.agent-step-body {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+/* ---- tool-call chips ---- */
+.agent-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.agent-chip {
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.72rem;
+}
+.agent-chip[data-flag="clipped"] {
+  color: var(--teal-dark);
+  border-color: var(--teal);
+}
+.agent-chip[data-flag="out-of-scope"] {
+  color: var(--amber);
+  border-color: var(--amber);
+}
+.agent-chip[data-flag="exfiltration"] {
+  color: var(--cardinal);
+  border-color: var(--cardinal);
+  font-weight: 750;
+}
+
+/* ---- why-this-is-safe disclosure ---- */
+.agent-why summary {
+  color: var(--teal-dark);
+  font-size: 0.84rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+.agent-why p {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+/* ---- responsive overrides (media queries last so they win) ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .agent-trace > li {
+    transition: border-color 180ms ease;
+  }
+}

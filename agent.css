@@ -1,0 +1,203 @@
+/* agent.css - clinical agent sandbox: page-level styles (hero, results,
+   tables, notes). Loaded after base.css, which supplies the tokens, reset,
+   typography, header and footer. Sandbox component styles live in
+   agent-panel.css so both files stay under the 300-line cap. */
+
+.agent-main {
+  width: min(1152px, 100%);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 48px) 96px;
+}
+
+/* ---- hero ---- */
+.agent-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: end;
+  padding: clamp(56px, 8vw, 104px) 0 clamp(40px, 5vw, 64px);
+  border-bottom: 1px solid var(--ink);
+}
+.agent-hero h1 {
+  margin-top: 14px;
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+}
+.agent-hero-copy {
+  display: grid;
+  gap: 16px;
+  max-width: 56ch;
+  color: var(--muted);
+  font-size: clamp(0.98rem, 1.4vw, 1.1rem);
+  line-height: 1.62;
+}
+.agent-hero-copy em {
+  color: var(--ink);
+  font-style: italic;
+}
+.page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
+}
+.page-actions a {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 20px;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  font-size: 0.86rem;
+  font-weight: 750;
+}
+.page-actions a:first-child {
+  color: white;
+  background: var(--teal-dark);
+  border-color: var(--teal-dark);
+}
+.page-actions a:hover {
+  transform: translateY(-3px);
+}
+
+/* ---- results ---- */
+.agent-results {
+  margin-top: clamp(56px, 8vw, 96px);
+  padding-top: clamp(36px, 5vw, 56px);
+  border-top: 1px solid var(--ink);
+}
+.agent-results-head {
+  max-width: 68ch;
+}
+.agent-results-head h2 {
+  margin-top: 12px;
+}
+.agent-results-head p {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: clamp(0.95rem, 1.3vw, 1.06rem);
+  line-height: 1.62;
+}
+.agent-table-wrap {
+  margin-top: 28px;
+  overflow-x: auto;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+.agent-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+.agent-table caption {
+  padding: 18px 20px 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+  text-align: left;
+}
+.agent-table th,
+.agent-table td {
+  padding: 12px 16px;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--line);
+}
+.agent-table thead th {
+  color: var(--muted);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.agent-table tbody tr:last-child th,
+.agent-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.agent-table td {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+.agent-table tbody th {
+  font-weight: 750;
+}
+.agent-table .is-good {
+  color: var(--teal-dark);
+  font-weight: 750;
+}
+.agent-table .is-bad {
+  color: var(--cardinal);
+}
+
+/* ---- stat cards, build notes, caveat ---- */
+.agent-stats,
+.agent-notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+.agent-notes {
+  margin-top: clamp(40px, 6vw, 72px);
+}
+.agent-stats article,
+.agent-notes article {
+  padding: clamp(20px, 2.2vw, 28px);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+.agent-stats span,
+.agent-notes span {
+  color: var(--teal-dark);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+}
+.agent-stats h3,
+.agent-notes h3 {
+  margin-top: 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.16rem;
+  font-weight: 500;
+}
+.agent-stats p,
+.agent-notes p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.58;
+}
+.agent-caveat {
+  margin-top: 24px;
+  padding: clamp(22px, 2.4vw, 32px);
+  background: rgba(180, 83, 9, 0.05);
+  border: 1px solid rgba(180, 83, 9, 0.28);
+  border-radius: 20px;
+}
+.agent-caveat h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.agent-caveat p {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.62;
+}
+.agent-caveat strong {
+  color: var(--amber);
+}
+
+/* ---- responsive overrides (media queries last so they win) ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .page-actions a {
+    transition: transform 180ms ease, border-color 180ms ease;
+  }
+}
+@media (max-width: 960px) {
+  .agent-hero {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+}

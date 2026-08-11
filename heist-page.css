@@ -1,0 +1,203 @@
+﻿/* --------------------------------------------------------------- sections */
+
+.heist-section {
+  max-width: 860px;
+  margin: clamp(48px, 7vw, 88px) auto 0;
+  padding: 0 clamp(20px, 6vw, 40px);
+}
+
+.heist-section h2 {
+  margin: 12px 0 0;
+  font-size: clamp(1.35rem, 2.7vw, 2rem);
+  font-weight: 750;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+.heist-section p {
+  margin-top: 16px;
+  line-height: 1.65;
+}
+
+.heist-section code {
+  padding: 2px 6px;
+  background: #f3f1ef;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.88em;
+}
+
+.heist-cols {
+  margin-top: 4px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 8px 34px;
+}
+
+.heist-aside {
+  margin-top: 20px;
+  padding-left: 18px;
+  border-left: 3px solid var(--line);
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.heist-stats {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.heist-stats div {
+  padding: 20px 22px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+
+.heist-stats strong {
+  display: block;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.heist-stats span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+/* Wide tables scroll inside their own box rather than pushing the page sideways
+   -- the budget sweep is nine columns and does not fit a phone. */
+.heist-scroll {
+  margin-top: 26px;
+  overflow-x: auto;
+}
+
+.heist-table {
+  width: 100%;
+  min-width: 460px;
+  border-collapse: collapse;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.84rem;
+}
+
+.heist-table caption {
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.82rem;
+  text-align: left;
+}
+
+.heist-table th,
+.heist-table td {
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--line);
+  text-align: right;
+}
+
+.heist-table thead th {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.heist-table tbody th,
+.heist-table thead th:first-child {
+  text-align: left;
+  font-weight: 750;
+}
+
+.heist-table .muted {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.heist-highlight {
+  max-width: none;
+  margin-left: clamp(16px, 5vw, 64px);
+  margin-right: clamp(16px, 5vw, 64px);
+  padding: clamp(28px, 4vw, 52px);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+}
+
+.heist-highlight > * {
+  max-width: 780px;
+}
+
+.heist-errors {
+  margin: 26px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 22px;
+  list-style: none;
+  counter-reset: mistake;
+}
+
+.heist-errors li {
+  position: relative;
+  padding: 22px 24px 22px 62px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  counter-increment: mistake;
+}
+
+.heist-errors li::before {
+  content: counter(mistake);
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  color: var(--cardinal);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.heist-errors h3 {
+  font-size: 1.05rem;
+  font-weight: 760;
+}
+
+.heist-errors p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.heist-repro pre {
+  margin-top: 22px;
+  padding: 20px 22px;
+  overflow-x: auto;
+  color: #e7e5e4;
+  background: var(--graphite);
+  border-radius: 18px;
+}
+
+.heist-repro code {
+  padding: 0;
+  color: inherit;
+  background: none;
+  font-size: 0.82rem;
+  line-height: 1.9;
+}
+
+@media (max-width: 720px) {
+  .heist-errors li {
+    padding: 20px 18px 20px 20px;
+  }
+
+  .heist-errors li::before {
+    position: static;
+    display: block;
+    margin-bottom: 6px;
+  }
+}

@@ -32,25 +32,31 @@
     <link rel="icon" href="assets/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <link rel="manifest" href="site.webmanifest" />
-    <link rel="stylesheet" href="styles.css?v=20260710a" />
-    <link rel="stylesheet" href="sections.css?v=20260710a" />
-    <link rel="stylesheet" href="components.css?v=20260615d" />
-    <link rel="stylesheet" href="panels.css?v=20260615c" />
-    <link rel="stylesheet" href="archive.css?v=20260615f" />
-    <link rel="stylesheet" href="portfolio.css?v=20260710a" />
-    <link rel="stylesheet" href="portfolio-cards.css?v=20260710a" />
+    <link rel="stylesheet" href="base.css?v=20260802b" />
+    <link rel="stylesheet" href="content.css?v=20260802b" />
   </head>
   <body itemscope itemtype="https://schema.org/Person">
     <meta itemprop="name" content="Chupeng Wei" />
+    <meta itemprop="givenName" content="Chupeng" />
+    <meta itemprop="familyName" content="Wei" />
     <meta itemprop="url" content="https://cpwei.qzz.io/" />
+    <meta itemprop="jobTitle" content="Undergraduate student" />
+    <meta itemprop="email" content="cpwei@stanford.edu" />
+    <meta itemprop="description" content="Stanford undergraduate building reliable AI systems, evaluation tools, and scientific software." />
+    <link itemprop="sameAs" href="https://github.com/Michaelwei08" />
+    <link itemprop="sameAs" href="https://www.linkedin.com/in/chupeng-wei-10a9a9359" />
+    <span itemprop="affiliation" itemscope itemtype="https://schema.org/CollegeOrUniversity">
+      <meta itemprop="name" content="Stanford University" />
+      <link itemprop="url" href="https://www.stanford.edu/" />
+    </span>
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
-      <a class="brand" href="#main-content" aria-label="Chupeng Wei home">
+      <a class="brand" href="/" aria-label="Chupeng Wei home">
         <span class="brand-mark">cp</span>
         <span>cpwei</span>
       </a>
       <nav aria-label="Primary navigation">
-        <a href="#projects">Projects</a>
+        <a href="/projects">Projects</a>
         <a href="/fun">Fun</a>
         <a href="#internship">Experience</a>
         <a href="/resume">Resume</a>
@@ -61,7 +67,7 @@
     <main id="main-content" tabindex="-1">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-content">
-          <p class="eyebrow">Stanford undergraduate</p>
+          <p class="eyebrow">Stanford undergraduate &middot; Class of 2029</p>
           <h1 id="hero-title">Chupeng Wei</h1>
           <p class="hero-statement">Building reliable AI systems and scientific tools.</p>
           <p class="hero-copy">
@@ -74,8 +80,44 @@
             <a class="button secondary" href="/resume">Resume</a>
           </div>
         </div>
-        <div class="hero-index" role="group" aria-label="Profile index">
-          <span>CPW / 2026</span><span>Stanford, California</span><span>Build / Evaluate / Care</span>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Projects</p>
+          <h2><span class="chapter-no" aria-hidden="true">01</span>Five builds, documented end to end.</h2>
+          <p>Each one carries concrete design decisions, measured results, and honest next-step notes. <a class="text-link section-archive-link" href="/projects">Open the selected project archive &rarr;</a> <a class="text-link section-archive-link" href="https://github.com/Michaelwei08" rel="me noreferrer">Browse the code on GitHub &rarr;</a></p>
+        </div>
+        <article class="project-feature">
+          <figure class="project-media">
+            <img src="assets/clinical-agent-project.webp" width="1280" height="720" loading="lazy" alt="Unsafe-action rate for four clinical agents, falling from 0.714 unguarded to 0.000 with the runtime guard on" />
+          </figure>
+          <div class="project-copy">
+            <span class="tag">Clinical agent safety + evaluation</span>
+            <h3>When should a clinical AI agent refuse to act?</h3>
+            <p>
+              A clinical agent can fail dangerously without saying anything false
+              &mdash; by acting when the right move was to gather a missing lab,
+              abstain, or escalate. I built a benchmark and a runtime guard that
+              sits outside the model, then ported the guard into a live sandbox.
+            </p>
+            <p class="process-note"><strong>Behind the build</strong> Four-way action space / data-driven policy / out-of-model enforcement / verified browser port</p>
+            <dl class="project-facts">
+              <div><dt>14</dt><dd>synthetic clinical cases</dd></div>
+              <div><dt>0</dt><dd>unsafe actions under enforcement</dd></div>
+              <div><dt>112</dt><dd>episodes verified against the harness</dd></div>
+            </dl>
+            <div class="link-row">
+              <a href="/clinical-agent">Open the sandbox &rarr;</a>
+              <a href="/projects#clinical-agent">Read the build note</a>
+            </div>
+          </div>
+        </article>
+        <div class="mini-projects" role="list" aria-label="Additional featured projects">
+          <a class="mini-project project-preview" role="listitem" href="/three-body"><span class="tag">Interactive AI + systems design</span><span class="summary-title">Participatory Three-Body narrative with cross-character memory</span><span class="preview-metric">Read the case study</span></a>
+          <a class="mini-project project-preview" role="listitem" href="/ultimate-tic-tac-toe"><span class="tag">Playable search system</span><span class="summary-title">Ultimate Tic-Tac-Toe against an on-device MCTS bot</span><span class="preview-metric">Play META/81</span></a>
+          <a class="mini-project project-preview" role="listitem" href="/projects#rl-reward"><span class="tag">RL evaluation</span><span class="summary-title">Reward-signal validation across 220 agent trajectories</span><span class="preview-metric">0.767 AUC</span></a>
+          <a class="mini-project project-preview" role="listitem" href="/projects#paper-audio"><span class="tag">Local AI tool</span><span class="summary-title">Research paper to Chinese brief and MP3</span><span class="preview-metric">35 paragraphs</span></a>
         </div>
       </section>
 
@@ -91,43 +133,6 @@
         <div>
           <span class="label">Direction</span>
           <strong>Biomedical AI research or engineering roles</strong>
-        </div>
-      </section>
-
-      <section id="projects" class="section">
-        <div class="section-heading">
-          <p class="eyebrow">Projects</p>
-          <h2><span class="chapter-no" aria-hidden="true">01</span>Systems documented through decisions, evidence, and next experiments.</h2>
-          <p>Four selected builds include concrete design decisions, measured results, and honest next-step notes. <a class="text-link section-archive-link" href="/projects">Open the selected project archive &rarr;</a></p>
-        </div>
-        <article class="project-feature">
-          <figure class="project-media">
-            <img src="assets/three-body-project.webp" width="1280" height="720" loading="lazy" alt="Three-Body interactive platform showing a live three-body simulation and narrative interface" />
-          </figure>
-          <div class="project-copy">
-            <span class="tag">Next.js + Three.js + LLM agents</span>
-            <h3>Interactive Three-Body reading platform</h3>
-            <p>
-              A participatory Book I narrative with four character perspectives,
-              shared cross-character memory, forced timeline events, rewindable
-              decisions, and a live Newtonian three-body simulation.
-            </p>
-            <p class="process-note"><strong>Behind the build</strong> Narrative state model / memory compaction / physics simulation / interaction design</p>
-            <dl class="project-facts">
-              <div><dt>4</dt><dd>character perspectives</dd></div>
-              <div><dt>2</dt><dd>turn timeline cadence</dd></div>
-              <div><dt>5</dt><dd>turn context compaction</dd></div>
-            </dl>
-            <div class="link-row">
-              <a href="/three-body">Read the case study &rarr;</a>
-              <a href="/three-body/demo/">Launch interactive demo</a>
-            </div>
-          </div>
-        </article>
-        <div class="mini-projects" role="list" aria-label="Additional featured projects">
-          <a class="mini-project project-preview" role="listitem" href="/ultimate-tic-tac-toe"><span class="tag">Playable search system</span><span class="summary-title">Ultimate Tic-Tac-Toe against an on-device MCTS bot</span><span class="preview-metric">Play META/81</span></a>
-          <a class="mini-project project-preview" role="listitem" href="/projects#rl-reward"><span class="tag">RL evaluation</span><span class="summary-title">Reward-signal validation across 220 agent trajectories</span><span class="preview-metric">0.767 AUC</span></a>
-          <a class="mini-project project-preview" role="listitem" href="/projects#paper-audio"><span class="tag">Local AI tool</span><span class="summary-title">Research paper to Chinese brief and MP3</span><span class="preview-metric">35 paragraphs</span></a>
         </div>
       </section>
 
@@ -186,6 +191,7 @@
           <p>Medical imaging, computational genomics, biomedical data systems, clinical ML, and research engineering.</p>
           <div class="contact-links">
             <a href="mailto:cpwei@stanford.edu?subject=AI-healthcare%20conversation">Email Chupeng</a>
+            <a href="https://github.com/Michaelwei08" rel="me noreferrer">GitHub</a>
             <a href="https://www.linkedin.com/in/chupeng-wei-10a9a9359" rel="me noreferrer">LinkedIn</a>
             <a href="/resume">Resume</a>
           </div>

@@ -1,0 +1,214 @@
+﻿/* heist.css - the HEIST/32 case study. Tokens, header, footer and .eyebrow
+   come from base.css; everything here is page-local. */
+
+.heist-main {
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0 0 96px;
+}
+.heist-hero {
+  padding: clamp(56px, 9vw, 108px) clamp(20px, 6vw, 76px) clamp(28px, 4vw, 48px);
+  max-width: 940px;
+}
+
+.heist-hero h1 {
+  margin: 16px 0 0;
+  font-size: clamp(1.9rem, 4.6vw, 3.3rem);
+  font-weight: 760;
+  line-height: 1.03;
+  letter-spacing: -0.02em;
+}
+
+.heist-lede {
+  max-width: 680px;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.6;
+}
+
+/* ---------------------------------------------------------------- replay */
+
+.heist-stage {
+  margin: 0 clamp(16px, 5vw, 64px);
+  padding: clamp(22px, 3.4vw, 40px);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.heist-stage-head h2 {
+  margin: 0;
+  font-size: clamp(1.2rem, 2.3vw, 1.65rem);
+  font-weight: 740;
+  line-height: 1.15;
+}
+
+.heist-stage-head p {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.heist-viewport {
+  max-width: 560px;
+  margin-top: 24px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  padding: clamp(14px, 2.5vw, 26px);
+  background: #fbfaf9;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+
+.heist-grid {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: clamp(1.05rem, 3.6vw, 1.75rem);
+  line-height: 1.22;
+  letter-spacing: 0.1em;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+/* One glyph palette, shared by the grid and the legend beneath it. */
+.heist-grid .f { color: #ebe9e7; }
+.heist-grid .w,
+.heist-grid .c { color: #d6d3d1; }
+
+.heist-grid .d, .heist-legend .d { color: var(--muted); }
+.heist-grid .e, .heist-legend .e { color: var(--teal-dark); }
+.heist-grid .s, .heist-legend .s { color: var(--teal); }
+.heist-grid .k, .heist-legend .k,
+.heist-grid .l, .heist-legend .l { color: var(--amber); }
+.heist-grid .v, .heist-legend .v { color: var(--graphite); }
+.heist-grid .g, .heist-legend .g { color: var(--cardinal); }
+.heist-grid .a1, .heist-legend .a1 { color: var(--blue); }
+.heist-grid .a2, .heist-legend .a2 { color: #7c3aed; }
+
+.heist-grid .d,
+.heist-grid .e,
+.heist-grid .s,
+.heist-grid .k,
+.heist-grid .l,
+.heist-grid .v,
+.heist-grid .g,
+.heist-grid .a1,
+.heist-grid .a2 { font-weight: 800; }
+
+.heist-noscript {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.heist-controls {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 18px;
+  align-items: end;
+}
+
+.heist-control {
+  display: grid;
+  gap: 8px;
+}
+
+.heist-control span {
+  color: var(--muted);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.heist-control input[type="range"] {
+  width: 100%;
+  accent-color: var(--teal);
+  cursor: pointer;
+}
+
+.heist-play {
+  padding: 11px 26px;
+  color: var(--paper);
+  background: var(--graphite);
+  border: 0;
+  border-radius: 999px;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.heist-play:hover {
+  background: var(--teal-dark);
+}
+
+.heist-readout {
+  margin: 24px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 30px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.heist-readout div {
+  display: grid;
+  gap: 3px;
+}
+
+.heist-readout dt {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.heist-readout dd {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.heist-verdict {
+  margin-top: 16px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.95rem;
+  font-weight: 750;
+}
+
+.heist-verdict[data-state="win"] { color: var(--teal-dark); }
+.heist-verdict[data-state="loss"] { color: var(--cardinal); }
+
+.heist-legend {
+  margin: 20px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  list-style: none;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.heist-legend b {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  margin-right: 3px;
+}
+
+@media (max-width: 720px) {
+  .heist-controls {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .heist-play {
+    justify-self: start;
+  }
+}

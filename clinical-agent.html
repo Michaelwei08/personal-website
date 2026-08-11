@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clinical Agent Safety | Chupeng Wei</title>
+    <meta name="description" content="When should a clinical AI agent refuse to act? A six-part walkthrough of an out-of-model runtime guard, with a live sandbox over fourteen synthetic cases." />
+    <meta name="theme-color" content="#fafaf9" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Chupeng Wei" />
+    <meta property="og:title" content="When should a clinical AI agent refuse to act?" />
+    <meta property="og:description" content="Six lessons and a live sandbox: four agents, one policy-driven guard, fourteen synthetic clinical cases. Toggle enforcement and watch the unsafe-action rate move." />
+    <meta property="og:url" content="https://cpwei.qzz.io/clinical-agent" />
+    <meta property="og:image" content="https://cpwei.qzz.io/assets/clinical-agent-project.webp" />
+    <meta property="og:image:alt" content="Guard-off versus guard-on outcomes for a clinical agent across four adversary levels" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="When should a clinical AI agent refuse to act?" />
+    <meta name="twitter:description" content="Six lessons and a live sandbox on out-of-model enforcement for clinical agents." />
+    <meta name="twitter:image" content="https://cpwei.qzz.io/assets/clinical-agent-project.webp" />
+    <link rel="canonical" href="https://cpwei.qzz.io/clinical-agent" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="stylesheet" href="base.css?v=20260802b" />
+    <link rel="stylesheet" href="agent.css?v=20260807a" />
+    <link rel="stylesheet" href="agent-lesson.css?v=20260807a" />
+    <link rel="stylesheet" href="agent-panel.css?v=20260807a" />
+    <link rel="stylesheet" href="agent-trace.css?v=20260807a" />
+  </head>
+  <body>
+    <a class="skip-link" href="#walkthrough">Skip to the walkthrough</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Chupeng Wei home"><span class="brand-mark">cp</span><span>cpwei</span></a>
+      <nav aria-label="Site navigation"><a href="/projects">Projects</a><a href="/fun">Fun</a><a href="/resume">Resume</a><a href="/#contact">Contact</a></nav>
+    </header>
+
+    <main id="main-content" class="agent-main">
+      <section class="agent-hero">
+        <div>
+          <p class="eyebrow">Clinical agent safety &middot; my research</p>
+          <h1>When should<br />a clinical AI agent<br />refuse to act?</h1>
+        </div>
+        <div class="agent-hero-copy">
+          <p>A clinical agent can fail dangerously without ever saying anything false &mdash; by
+            <em>acting</em> when the correct behavior was to gather a missing lab, abstain, or hand
+            off to a licensed clinician.</p>
+          <p>I built a benchmark and a runtime guard to measure that, then ported the guard into
+            this page. Below: six lessons, each one contrast you can run, and a sandbox over all
+            fourteen cases. Everything executes in your browser &mdash; no account, no network
+            call, no model in the loop.</p>
+          <div class="page-actions"><a href="#walkthrough">Start the walkthrough</a><a href="#sandbox">Skip to the sandbox</a></div>
+        </div>
+      </section>
+
+      <aside class="agent-notice" aria-label="Scope of this artifact">
+        <p><strong>Research artifact, not a clinical system.</strong> Every record here is
+          synthetic (Synthea, Apache-2.0) with identifiers removed &mdash; no patient data of any
+          kind. Nothing on this page is medical advice, and none of it is validated for clinical
+          use. The agents are deterministic stand-ins, not language models. What is and is not
+          demonstrated is stated next to each result and again <a href="#caveat">in full below</a>.</p>
+      </aside>
+
+      <section class="agent-headline" aria-labelledby="headline-title">
+        <h2 id="headline-title" class="agent-visually-quiet">Headline result</h2>
+        <dl id="headline-facts" class="agent-headline-facts"></dl>
+        <p class="agent-headline-note">Computed live by the engine on this page, not transcribed.</p>
+      </section>
+
+      <section class="agent-attribution" aria-labelledby="attribution-title">
+        <div>
+          <p class="eyebrow">What is mine</p>
+          <h2 id="attribution-title">My work</h2>
+        </div>
+        <div>
+          <p>I designed the case schema and the four-way action space, authored the fourteen
+            synthetic cases, wrote the data-driven policy and the runtime guard, and built the
+            evaluation harness that produces the numbers on this page &mdash; the research project
+            behind it is mine, not a reimplementation of someone else's.</p>
+          <p>For this page I ported that guard to client-side modules and wrote a parity harness
+            that holds the port to the original. The honest framing of the research itself is
+            <em>instantiation and measurement</em>, not a new architecture: out-of-model guards,
+            decoupled unsafe-action rates, and least-privilege scoring all pre-exist, and I
+            checked that adversarially before claiming anything.</p>
+        </div>
+      </section>
+
+      <section id="walkthrough" class="agent-walkthrough" aria-labelledby="walkthrough-title">
+        <div class="agent-results-head">
+          <p class="eyebrow">Six lessons</p>
+          <h2 id="walkthrough-title">One idea at a time.</h2>
+          <p>Each lesson names two runs that differ in exactly one thing &mdash; the record, or
+            the guard, never both &mdash; so you can attribute the change. Both runs execute when
+            this page loads. Open either one in the sandbox to see its full step-by-step trace.</p>
+        </div>
+        <div id="lessons" class="agent-lessons"></div>
+      </section>
+
+      <section id="sandbox" class="agent-shell" aria-labelledby="sandbox-title">
+        <aside class="agent-controls">
+          <div>
+            <p class="agent-kicker">Free exploration</p>
+            <h2 id="sandbox-title">Run any<br />case</h2>
+            <p class="agent-intro">Pick a case and an agent, then toggle the guard. The agent does
+              not change when you toggle &mdash; only whether its plan reaches the record.</p>
+          </div>
+
+          <label class="agent-label" for="case-select">Case</label>
+          <select id="case-select"></select>
+          <p id="case-tag" class="agent-hint"></p>
+
+          <fieldset>
+            <legend>Base agent</legend>
+            <div id="agent-picker" class="agent-segmented agent-segmented-stack"></div>
+            <p id="agent-blurb" class="agent-hint"></p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Runtime guard</legend>
+            <div id="guard-picker" class="agent-segmented">
+              <button type="button" data-guard="off">Off</button>
+              <button type="button" data-guard="on">On</button>
+            </div>
+          </fieldset>
+
+          <button id="run-case" class="agent-primary" type="button">Run episode <span aria-hidden="true">&rarr;</span></button>
+
+          <dl class="agent-score" aria-label="Episode outcome">
+            <div><dt id="score-chosen">&mdash;</dt><dd>Agent chose</dd></div>
+            <div><dt id="score-correct">&mdash;</dt><dd>Safe answer</dd></div>
+          </dl>
+        </aside>
+
+        <div class="agent-stage">
+          <div id="verdict" class="agent-verdict" role="status" aria-live="polite">
+            <span id="verdict-dot" aria-hidden="true"></span>
+            <span id="verdict-text">Pick a case and run an episode.</span>
+          </div>
+
+          <article class="agent-request">
+            <h3>Request</h3>
+            <p id="request-task">&mdash;</p>
+            <dl class="agent-meta">
+              <div><dt>Patient</dt><dd id="request-patient">&mdash;</dd></div>
+              <div><dt>Tools</dt><dd id="request-tools">&mdash;</dd></div>
+              <div><dt>In scope</dt><dd id="request-scope">&mdash;</dd></div>
+            </dl>
+          </article>
+
+          <ol id="trace" class="agent-trace"><li class="agent-empty">The trace appears here, step by step.</li></ol>
+
+          <details id="why" class="agent-why">
+            <summary>Why this is the safe resolution</summary>
+            <p id="why-text"></p>
+          </details>
+        </div>
+      </section>
+
+      <section id="results" class="agent-results" aria-labelledby="results-title">
+        <div class="agent-results-head">
+          <p class="eyebrow">Computed live, in this page</p>
+          <h2 id="results-title">Enforcement delta</h2>
+          <p>Same base agent, guard off versus on, over all fourteen cases. Lower is safer. The
+            guarded column going flat while the unguarded column varies is the point: safety is
+            being set by the policy, not by the agent's good intentions.</p>
+        </div>
+        <div class="agent-table-wrap">
+          <table id="delta-table" class="agent-table">
+            <caption>Unsafe-action rate, out-of-scope reads per case, and injection-follow rate</caption>
+            <thead>
+              <tr>
+                <th scope="col">Base agent</th>
+                <th scope="col">Unsafe off</th>
+                <th scope="col">Unsafe on</th>
+                <th scope="col">Reduction</th>
+                <th scope="col">Out-of-scope off</th>
+                <th scope="col">Out-of-scope on</th>
+                <th scope="col">Injection off</th>
+                <th scope="col">Injection on</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="agent-stats">
+          <article><span>01</span><h3>Adversary invariance</h3><p id="stat-invariance"></p></article>
+          <article><span>02</span><h3>Policy error, no agent</h3><p id="stat-policy"></p></article>
+          <article><span>03</span><h3>Generalization gap</h3><p id="stat-gap"></p></article>
+          <article><span>04</span><h3>Verified port</h3><p id="stat-parity"></p></article>
+        </div>
+
+        <aside id="caveat" class="agent-caveat">
+          <h3>What these numbers are not</h3>
+          <p>The cases and the base agents were written by the same author who wrote the policy, so
+            a zero policy error and a zero generalization gap are <strong>not</strong> evidence that
+            the guard generalizes &mdash; they show the policy is self-consistent on cases it was
+            authored against. An honest generalization claim needs policy-blind case authoring, a
+            second data seed, and boundary traps.</p>
+          <p>Fourteen cases is a small benchmark. The base agents are deterministic stand-ins, not
+            language models, so nothing here measures how a real model would behave. Patient
+            records are synthetic with identifiers removed; nothing here is PHI. This is a research
+            artifact and not a clinical system, and none of it is medical advice.</p>
+          <p class="agent-next"><strong>Next experiment</strong> Clinician-authored cases held out
+            from the policy author, a second Synthea seed, deliberate boundary traps near each
+            threshold, and a real model-driven base agent in place of the stand-ins &mdash; which is
+            the only version of this whose generalization gap would mean anything.</p>
+        </aside>
+      </section>
+    </main>
+
+    <footer><span>Chupeng Wei</span><span>Clinical agent safety</span></footer>
+    <script type="module" src="/assets/ca-app.js?rev=20260807a"></script>
+  </body>
+</html>

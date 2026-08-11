@@ -1,0 +1,221 @@
+/* agent-panel.css - the sandbox component: controls, stage, verdict, and the
+   step-by-step episode trace. Loaded after agent.css. Split from it to keep
+   both files under the 300-line cap. */
+
+.agent-shell {
+  display: grid;
+  grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
+  gap: clamp(20px, 3vw, 36px);
+  margin-top: clamp(36px, 5vw, 64px);
+}
+
+/* ---- controls ---- */
+.agent-controls {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  padding: clamp(22px, 2.4vw, 32px);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+.agent-kicker,
+.agent-label,
+.agent-controls legend {
+  color: var(--teal-dark);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.agent-controls h2 {
+  margin-top: 8px;
+  font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+}
+.agent-intro,
+.agent-hint {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+.agent-intro {
+  margin-top: 12px;
+}
+.agent-hint {
+  min-height: 2.6em;
+  font-size: 0.78rem;
+}
+.agent-controls fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.agent-controls select {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 12px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  font: inherit;
+  font-size: 0.88rem;
+}
+.agent-segmented {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+.agent-segmented-stack {
+  flex-direction: column;
+}
+.agent-segmented button {
+  flex: 1;
+  min-height: 42px;
+  padding: 0 12px;
+  color: var(--muted);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+.agent-segmented button[aria-pressed="true"] {
+  color: white;
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.agent-primary {
+  min-height: 50px;
+  color: white;
+  background: var(--teal-dark);
+  border: 1px solid var(--teal-dark);
+  border-radius: 2px;
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+.agent-primary:hover {
+  background: var(--teal);
+}
+.agent-score {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.agent-score dt {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+.agent-score dd {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---- stage ---- */
+.agent-stage {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+}
+.agent-verdict {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+.agent-verdict span:last-child {
+  min-width: 0;
+}
+#verdict-dot {
+  flex: 0 0 auto;
+  width: 12px;
+  height: 12px;
+  background: var(--muted);
+  border-radius: 50%;
+}
+.agent-verdict[data-state="safe"] {
+  border-color: var(--teal);
+}
+.agent-verdict[data-state="safe"] #verdict-dot {
+  background: var(--teal);
+}
+.agent-verdict[data-state="unsafe"] {
+  border-color: var(--cardinal);
+}
+.agent-verdict[data-state="unsafe"] #verdict-dot {
+  background: var(--cardinal);
+}
+.agent-request,
+.agent-why {
+  padding: clamp(18px, 2vw, 26px);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+.agent-request h3 {
+  color: var(--teal-dark);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+#request-task {
+  margin-top: 10px;
+  font-size: clamp(1.02rem, 1.6vw, 1.2rem);
+  line-height: 1.45;
+}
+.agent-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 26px;
+  margin: 16px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.agent-meta dt {
+  color: var(--muted);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.agent-meta dd {
+  margin: 3px 0 0;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.78rem;
+}
+
+/* ---- responsive overrides (media queries last so they win) ---- */
+@media (max-width: 960px) {
+  .agent-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .agent-verdict {
+    align-items: flex-start;
+    border-radius: 20px;
+  }
+  #verdict-dot {
+    margin-top: 5px;
+  }
+}

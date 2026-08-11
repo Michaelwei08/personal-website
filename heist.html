@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HEIST/32 | Chupeng Wei</title>
+    <meta name="description" content="A two-agent cooperative benchmark measuring what coordination costs in characters of communication." />
+    <meta name="theme-color" content="#fafaf9" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Chupeng Wei" />
+    <meta property="og:title" content="HEIST/32 | Chupeng Wei" />
+    <meta property="og:description" content="Two agents, one vault, and a metered radio. Watch coordination fail and succeed as the character budget changes." />
+    <meta property="og:url" content="https://cpwei.qzz.io/heist" />
+    <meta property="og:image" content="https://cpwei.qzz.io/assets/cpwei-social-card.jpg" />
+    <meta property="og:image:alt" content="Chupeng Wei — AI systems, evaluation and scientific software" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="HEIST/32 | Chupeng Wei" />
+    <meta name="twitter:description" content="Two agents, one vault, and a metered radio." />
+    <meta name="twitter:image" content="https://cpwei.qzz.io/assets/cpwei-social-card.jpg" />
+    <link rel="canonical" href="https://cpwei.qzz.io/heist" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="stylesheet" href="base.css?v=20260802b" />
+    <link rel="stylesheet" href="heist-page.css?v=20260807a" />
+    <link rel="stylesheet" href="heist-replay.css?v=20260807a" />
+  </head>
+  <body>
+    <a class="skip-link" href="#replay">Skip to the replay</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Chupeng Wei home"><span class="brand-mark">cp</span><span>cpwei</span></a>
+      <nav aria-label="Case study navigation"><a href="/projects">Projects</a><a href="/fun">Fun</a><a href="/resume">Resume</a><a href="/#contact">Contact</a></nav>
+    </header>
+
+    <main id="main-content" class="heist-main" tabindex="-1">
+      <section class="heist-hero">
+        <p class="eyebrow">HEIST/32 &middot; cooperative benchmark</p>
+        <h1>What does coordination cost, in characters?</h1>
+        <p class="heist-lede">Two thieves have to press two switches on the same tick to open a vault. They cannot see each other. The only thing connecting them is a radio billed by the character &mdash; and that bill is the experiment.</p>
+      </section>
+
+      <section id="replay" class="heist-stage" aria-labelledby="replay-title" data-heist>
+        <div class="heist-stage-head">
+          <h2 id="replay-title">Same vault, same seed, different radio budget.</h2>
+          <p>Drag the budget down and watch the plan fall apart. Nothing else changes.</p>
+        </div>
+
+        <div class="heist-viewport">
+          <pre class="heist-grid" data-grid role="img" aria-label="Vault replay. The status readout below carries the same information as text.">###############
+#$#...........#
+#V#.#####...#.#
+#k#.....#E#.#.#
+#.#.#.#.###.#.#
+#.#.#.#.....#.#
+#.###.#.###.#.#
+#.......#...#.#
+###.###.#.#.#.#
+#B.+....#A#...#
+###############</pre>
+          <noscript><p class="heist-noscript">The replay needs JavaScript. The map above is the vault; the write-up below stands on its own.</p></noscript>
+        </div>
+
+        <div class="heist-controls">
+          <label class="heist-control">
+            <span>Radio budget (characters per agent)</span>
+            <input type="range" min="0" max="4" step="1" value="3" data-budget aria-describedby="budget-readout" />
+          </label>
+          <label class="heist-control">
+            <span>Tick</span>
+            <input type="range" min="0" max="300" step="1" value="0" data-tick />
+          </label>
+          <button type="button" class="heist-play" data-play aria-pressed="false">Play</button>
+        </div>
+
+        <dl class="heist-readout" id="budget-readout">
+          <div><dt>Budget</dt><dd data-out-budget>32</dd></div>
+          <div><dt>Tick</dt><dd data-out-tick>0</dd></div>
+          <div><dt>Alarm</dt><dd data-out-alarm>0 / 12</dd></div>
+          <div><dt>Characters spent</dt><dd data-out-comms>0</dd></div>
+          <div><dt>Phase</dt><dd data-out-phase>searching</dd></div>
+        </dl>
+        <p class="heist-verdict" data-out-verdict data-state="win">escaped after 214 ticks</p>
+
+        <ul class="heist-legend">
+          <li><b class="a1">1</b><b class="a2">2</b> the two agents</li>
+          <li><b class="g">g</b> a patrol</li>
+          <li><b class="s">A</b><b class="s">B</b> the switches</li>
+          <li><b class="d">+</b> locked door, <b class="d">/</b> opened</li>
+          <li><b class="v">V</b> vault, <b class="v">v</b> breached</li>
+          <li><b class="k">k</b> keycard, <b class="l">$</b> loot, <b class="e">E</b> exit</li>
+        </ul>
+      </section>
+
+      <section class="heist-section">
+        <p class="eyebrow">The rule</p>
+        <h2>Cooperation is structural, not optional.</h2>
+        <div class="heist-cols">
+          <p>The vault opens only if both switches go down on the <b>same tick</b>. A press the partner does not match trips a sensor, so pressing hopefully and often gets you caught rather than lucky. There is no solo path to a breach &mdash; that is asserted by a test, not by convention.</p>
+          <p>Each agent sees a radius-3 neighbourhood, its own inventory, the alarm level, and whether the vault has opened. Not the map, not the partner's position, not what the partner is carrying. Messages cost characters, arrive one tick late, and come out of a fixed per-episode budget.</p>
+        </div>
+        <p class="heist-aside">The whole protocol is map facts plus five control tokens: <code>?d</code> (&ldquo;open the door, I am stuck&rdquo;), <code>!d</code> and <code>!k</code> (&ldquo;done&rdquo; / &ldquo;I have the card&rdquo;), <code>R</code> (&ldquo;I am on my switch&rdquo;), and <code>P137</code> (&ldquo;press at tick 137&rdquo;).</p>
+      </section>
+
+      <section class="heist-section">
+        <p class="eyebrow">Evidence</p>
+        <h2>200 seeded vaults, one build.</h2>
+        <div class="heist-stats">
+          <div><strong>92.5%</strong><span>success with the radio on</span></div>
+          <div><strong>3.0%</strong><span>same code, radio off</span></div>
+          <div><strong>62</strong><span>characters spent coordinating</span></div>
+        </div>
+        <div class="heist-scroll"><table class="heist-table">
+          <caption>Agent ladder. <code>+/-</code> is one standard error.</caption>
+          <thead><tr><th scope="col">Agent</th><th scope="col">Success</th><th scope="col">Breached</th><th scope="col">Alarm from mistimed presses</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">planner</th><td>92.5% +/- 1.9%</td><td>98.5%</td><td>0.00</td></tr>
+            <tr><th scope="row">solo <span class="muted">(radio off)</span></th><td>3.0% +/- 1.2%</td><td>4.0%</td><td>13.53</td></tr>
+            <tr><th scope="row">random</th><td>0.0% +/- 0.0%</td><td>0.0%</td><td>1.10</td></tr>
+          </tbody>
+        </table></div>
+        <p><code>solo</code> is the planner with the radio switched off &mdash; every line of navigation code is shared. It does not fail by getting lost; it fails by tripping the sensor, which is exactly the failure the channel exists to prevent. Paired over the same seeds the gap is <code>+0.8950 +/- 0.0217</code>.</p>
+
+        <div class="heist-scroll"><table class="heist-table">
+          <caption>Success against the per-agent character budget.</caption>
+          <thead><tr><th scope="col">Budget</th><th scope="col">0</th><th scope="col">4</th><th scope="col">8</th><th scope="col">12</th><th scope="col">16</th><th scope="col">24</th><th scope="col">32</th><th scope="col">64</th><th scope="col">400</th></tr></thead>
+          <tbody><tr><th scope="row">Success</th><td>0.0%</td><td>0.0%</td><td>24.5%</td><td>63.0%</td><td>82.0%</td><td>88.5%</td><td>92.5%</td><td>92.5%</td><td>92.5%</td></tr></tbody>
+        </table></div>
+        <p>A working rendezvous is one <code>R</code> and one <code>P137</code> &mdash; six characters &mdash; and the mission saturates at 32.</p>
+      </section>
+
+      <section class="heist-section heist-highlight">
+        <p class="eyebrow">The result I did not expect</p>
+        <h2>The bottleneck was allocation, not bandwidth.</h2>
+        <p>The curve above used to be a cliff: zero all the way to budget 16, then 79.5% at 32. At budget 16 the agents <b>spent 14.8 of their 16 characters and still never opened the vault</b>. The channel was not too small for the protocol. Map facts are discovered early, the rendezvous happens late, and a first-come channel is empty by the time it matters.</p>
+        <p>Budgeting the two separately turned the cliff into the slope. And the same shape appears one level up: reserving 24 characters beats reserving 12, but it also beats reserving 40, because the facts you then cannot afford were worth something. It is a trade-off with an interior optimum, not a threshold to maximise.</p>
+        <div class="heist-scroll"><table class="heist-table">
+          <caption>Reserve, paired over identical seeds at the budgets where it binds.</caption>
+          <thead><tr><th scope="col">Reserve</th><th scope="col">0</th><th scope="col">12</th><th scope="col">24</th><th scope="col">40</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Budget 16</th><td>0.0%</td><td>67.5%</td><td><b>82.0%</b></td><td>82.0%</td></tr>
+            <tr><th scope="row">Budget 32</th><td>86.5%</td><td>89.0%</td><td><b>92.5%</b></td><td>89.0%</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <section class="heist-section">
+        <p class="eyebrow">Process</p>
+        <h2>Three things I believed that measurement killed.</h2>
+        <ol class="heist-errors">
+          <li>
+            <h3>I was leaking the answer.</h3>
+            <p>The observation handed to each agent carried a <code>loot_taken</code> flag &mdash; a global broadcast of what the partner was holding, while the write-up promised agents could not see that. Masking it dropped success from 87% to <b>0%</b>. A benchmark measuring the price of coordination had been giving two coordination bits away free.</p>
+          </li>
+          <li>
+            <h3>I blamed the wrong thing for the failures.</h3>
+            <p>I attributed the remaining timeouts to the loot fetch always falling to one agent. The real cause was <b>patrol-locked limit cycles</b>: 17 of 19 timeouts were exact orbits whose period equalled the guard's route length, and 16 of them ended having spent <b>0 of 12</b> alarm points. An agent hoarding risk it never uses is not being careful, it is stuck. My original explanation is worth about a sixth of the residual.</p>
+          </li>
+          <li>
+            <h3>The headline table went stale and nothing looked wrong.</h3>
+            <p>After an improvement landed, every row of the results table was still correct except the single most important one. That is the worst failure mode, so re-measuring the whole table on one build is now a script rather than an intention.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="heist-section">
+        <p class="eyebrow">Honest limits</p>
+        <h2>What this is not.</h2>
+        <p>It is not a hard planning problem. The maze is 15x11 and the search is breadth-first. The difficulty lives entirely in the joint policy, and the benchmark is one I wrote myself &mdash; so the interesting part is the method, not a score. Twelve of 200 seeds still time out and three still bust.</p>
+        <p>The viewer above animates a trace, it does not simulate. Porting the engine to JavaScript would have created a second, untested copy of the rules; the neighbouring Ultimate Tic-Tac-Toe project keeps three copies and pays for it on every change. What you watched is the same episode that produced the numbers.</p>
+      </section>
+
+      <section class="heist-section heist-repro">
+        <p class="eyebrow">Reproduce it</p>
+        <h2>Everything above is one command away.</h2>
+        <p>Pure Python, standard library only, no API key, no training. An episode is a pure function of its seed.</p>
+        <pre><code>$env:PYTHONPATH="src"; python -m heist.cli watch --seed 1 --every 20
+$env:PYTHONPATH="src"; python -m heist.cli compare --a planner --b solo --seeds 200
+$env:PYTHONPATH="src"; python scripts/report.py --seeds 200</code></pre>
+        <p class="heist-aside">The last one regenerates every number on this page, on one build, in one run.</p>
+      </section>
+    </main>
+
+    <footer><span>Chupeng Wei</span><span>HEIST/32</span></footer>
+    <script type="module" src="/assets/heist-player.js?rev=20260807a"></script>
+  </body>
+</html>
