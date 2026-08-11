@@ -3,9 +3,9 @@
 Personal website for Chupeng Wei, focused on selected AI, evaluation, and
 scientific-software projects.
 
-The site is static HTML and CSS except for the isolated, client-side
-Ultimate Tic-Tac-Toe route. It is designed for deployment on Cloudflare Pages
-with security headers defined in `_headers`.
+The site is static HTML and CSS except for isolated, client-side game routes.
+It is designed for deployment on Cloudflare Pages with security headers
+defined in `_headers`.
 
 Public pages:
 
@@ -16,6 +16,7 @@ Public pages:
 - `/three-body` - interactive reading platform case study
 - `/three-body/demo/` - public, pre-generated interactive reading demo
 - `/ultimate-tic-tac-toe` - playable game against an on-device search bot
+- `/military` - playable concealed Junqi against an information-set bot
 - unknown routes - custom not-found page
 
 ## Local preview
