@@ -6,7 +6,7 @@
     <title>Chupeng Wei | AI Systems, Evaluation &amp; Scientific Software</title>
     <meta
       name="description"
-      content="Chupeng Wei is a Stanford undergraduate building reliable AI systems, evaluation tools, and scientific software, with experience in clinical imaging workflows."
+      content="Michael (Chupeng) Wei is a Stanford CS undergraduate in Computational Biology working on clinical AI safety, medical imaging, genomics, and health data. Seeking Summer 2027 internships."
     />
     <meta name="theme-color" content="#fafaf9" />
     <meta name="author" content="Chupeng Wei" />
@@ -15,7 +15,7 @@
     <meta property="og:title" content="Chupeng Wei | AI Systems, Evaluation &amp; Scientific Software" />
     <meta
       property="og:description"
-      content="Evidence-backed AI systems, evaluation work, and scientific software by Chupeng Wei."
+      content="Clinical AI safety, medical imaging, genomics, and health-data research by Stanford CS undergraduate Michael (Chupeng) Wei."
     />
     <meta property="og:url" content="https://cpwei.qzz.io/" />
     <meta property="og:image" content="https://cpwei.qzz.io/assets/cpwei-social-card.jpg" />
@@ -24,7 +24,7 @@
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Chupeng Wei | AI Systems, Evaluation &amp; Scientific Software" />
-    <meta name="twitter:description" content="Evidence-backed AI systems, evaluation work, and scientific software by Chupeng Wei." />
+    <meta name="twitter:description" content="Clinical AI safety, medical imaging, genomics, and health-data research by Stanford CS undergraduate Michael (Chupeng) Wei." />
     <meta name="twitter:image" content="https://cpwei.qzz.io/assets/cpwei-social-card.jpg" />
     <meta name="twitter:image:alt" content="Chupeng Wei — AI systems, evaluation and scientific software" />
     <link rel="canonical" href="https://cpwei.qzz.io/" />
@@ -37,6 +37,7 @@
   </head>
   <body itemscope itemtype="https://schema.org/Person">
     <meta itemprop="name" content="Chupeng Wei" />
+    <meta itemprop="alternateName" content="Michael Wei" />
     <meta itemprop="givenName" content="Chupeng" />
     <meta itemprop="familyName" content="Wei" />
     <meta itemprop="url" content="https://cpwei.qzz.io/" />
@@ -67,13 +68,13 @@
     <main id="main-content" tabindex="-1">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-content">
-          <p class="eyebrow">Stanford undergraduate &middot; Class of 2029</p>
+          <p class="eyebrow">Stanford CS &middot; Computational Biology &middot; Class of 2029</p>
           <h1 id="hero-title">Chupeng Wei</h1>
-          <p class="hero-statement">Building reliable AI systems and scientific tools.</p>
+          <p class="hero-statement">Building AI grounded in biomedical evidence.</p>
           <p class="hero-copy">
-            I build evidence-backed AI and scientific-software projects, with a
-            focus on evaluation, human-facing systems, and healthcare-adjacent
-            problems.
+            I go by Michael. My work connects clinical AI safety, medical image
+            reconstruction, computational genomics, and real-world health data.
+            I am seeking Summer 2027 and off-cycle 2026&ndash;27 AI/healthcare internships.
           </p>
           <div class="hero-actions" role="group" aria-label="Primary links">
             <a class="button primary" href="#projects">Explore my work</a>
@@ -90,25 +91,26 @@
         </div>
         <article class="project-feature">
           <figure class="project-media">
-            <img src="assets/clinical-agent-project.webp" width="1280" height="720" loading="lazy" alt="Unsafe-action rate for four clinical agents, falling from 0.714 unguarded to 0.000 with the runtime guard on" />
+            <img src="assets/clinical-agent-project.webp" width="1280" height="720" loading="lazy" alt="Earlier 14-case browser demo: deterministic stand-in agents with the runtime guard off versus on; separate from the 20-case model evaluation" />
           </figure>
           <div class="project-copy">
-            <span class="tag">Clinical agent safety + evaluation</span>
+            <span class="tag">VMAG &middot; Clinical agent safety + evaluation</span>
             <h3>When should a clinical AI agent refuse to act?</h3>
             <p>
               A clinical agent can fail dangerously without saying anything false
               &mdash; by acting when the right move was to gather a missing lab,
               abstain, or escalate. I built a benchmark and a runtime guard that
-              sits outside the model, then ported the guard into a live sandbox.
+              sits outside the model, with a 20-case model evaluation and an
+              earlier interactive browser demo.
             </p>
-            <p class="process-note"><strong>Behind the build</strong> Four-way action space / data-driven policy / out-of-model enforcement / verified browser port</p>
+            <p class="process-note"><strong>Latest evaluation</strong> Guard off &rarr; on, on synthetic FHIR cases. Small-benchmark results, not clinical validation. The illustration and sandbox show the earlier 14-case deterministic demo.</p>
             <dl class="project-facts">
-              <div><dt>14</dt><dd>synthetic clinical cases</dd></div>
-              <div><dt>0</dt><dd>unsafe actions under enforcement</dd></div>
-              <div><dt>112</dt><dd>episodes verified against the harness</dd></div>
+              <div><dt>20</dt><dd>synthetic evaluation cases</dd></div>
+              <div><dt>0.35 &rarr; 0</dt><dd>7B model unsafe-action rate</dd></div>
+              <div><dt>0.375 &rarr; 0</dt><dd>frontier model over-refusal rate</dd></div>
             </dl>
             <div class="link-row">
-              <a href="/clinical-agent">Open the sandbox &rarr;</a>
+              <a href="/clinical-agent">Open the earlier sandbox &rarr;</a>
               <a href="/projects#clinical-agent">Read the build note</a>
             </div>
           </div>
@@ -128,11 +130,11 @@
         </div>
         <div>
           <span class="label">Evaluation</span>
-          <strong>Reward signals and evidence-first analysis</strong>
+          <strong>Clinical-agent safety and evidence-first analysis</strong>
         </div>
         <div>
           <span class="label">Direction</span>
-          <strong>Biomedical AI research or engineering roles</strong>
+          <strong>Summer 2027 &amp; off-cycle 2026&ndash;27 internships</strong>
         </div>
       </section>
 
@@ -142,25 +144,36 @@
             <p class="eyebrow">Experience &amp; direction</p>
             <h2><span class="chapter-no" aria-hidden="true">02</span>Applied experience and the problems I want to tackle next.</h2>
           </div>
-          <p>I am looking for undergraduate research or engineering roles where AI is close to real biomedical data, scientific constraints, and human outcomes.</p>
+          <p>My Stanford research spans clinical-agent evaluation, molecular fingerprints, medical image reconstruction, cancer genomics, Medicaid claims, and patient movement.</p>
         </div>
         <div class="internship-grid">
           <div class="experience-list">
             <article>
-              <span class="tag">Applied AI</span>
+              <span class="tag">Canary CREST &middot; June &ndash; August 2026</span>
+              <h3>Lung-nodule analysis, Demirci / BAMM Lab</h3>
+              <p>Built a patient-level extracellular-vesicle SERS analysis pipeline, assessed repeatability and detection limits, and presented at the August 2026 Canary CREST Symposium.</p>
+            </article>
+            <article>
+              <span class="tag">Stanford research &middot; 2026 &ndash; present</span>
+              <h3>Medical imaging, genomics, and health data</h3>
+              <p>Validating MLAA reconstruction in the Craig Levin Lab; supporting cancer-genomics workflows over approximately 4 TB of data in the Alizadeh Lab; analyzing Medicaid claims at SIEPR; and working on 3D patient-movement reconstruction in the Computer Vision Lab.</p>
+              <a class="text-link" href="/resume">Read research roles and details &rarr;</a>
+            </article>
+            <article>
+              <span class="tag">Applied AI &middot; August &ndash; September 2025</span>
               <h3>LLM development intern, Tencent</h3>
               <p>Built real-time motion detection, gesture comparison, auditory feedback, and user-defined gesture features for an AI exercise assistant.</p>
             </article>
             <article>
-              <span class="tag">Clinical imaging</span>
+              <span class="tag">Clinical imaging &middot; July &ndash; August 2024</span>
               <h3>Imaging technician intern</h3>
-              <p>Supported CT and digital-radiography workflows, patient positioning, and high-volume hospital imaging operations.</p>
+              <p>Supported CT and digital-radiography workflows serving more than 120 patients per day, including patient positioning, navigation, and outreach.</p>
             </article>
           </div>
           <div class="target-panel">
             <span class="tag">What I am looking for</span>
             <h3>Teams connecting machine learning with biomedical discovery or care.</h3>
-            <p>I am especially interested in medical imaging, computational genomics, biomedical data science, clinical machine learning, and research engineering.</p>
+            <p>Available for Summer 2027 and off-cycle 2026&ndash;27 internships. I am especially interested in medical imaging, computational genomics, biomedical data science, clinical machine learning, and research engineering.</p>
             <ul class="interest-list">
               <li>Research code that must be validated, not merely demonstrated</li>
               <li>Large, messy biomedical or healthcare datasets</li>

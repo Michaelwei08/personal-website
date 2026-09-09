@@ -54,6 +54,11 @@
       </section>
 
       <aside class="agent-notice" aria-label="Scope of this artifact">
+        <p><strong>Version note &middot; September 2026.</strong> This page preserves the earlier
+          14-case deterministic teaching demo. The subsequent VMAG evaluation uses 20 synthetic
+          cases with language-model responses; its results are reported separately in the
+          <a href="/projects#clinical-agent">updated project summary</a>. The numbers computed
+          below are from this browser demo, not that model evaluation.</p>
         <p><strong>Research artifact, not a clinical system.</strong> Every record here is
           synthetic (Synthea, Apache-2.0) with identifiers removed &mdash; no patient data of any
           kind. Nothing on this page is medical advice, and none of it is validated for clinical
@@ -201,10 +206,12 @@
             language models, so nothing here measures how a real model would behave. Patient
             records are synthetic with identifiers removed; nothing here is PHI. This is a research
             artifact and not a clinical system, and none of it is medical advice.</p>
-          <p class="agent-next"><strong>Next experiment</strong> Clinician-authored cases held out
+          <p class="agent-next"><strong>Remaining validation</strong> Clinician-authored cases held out
             from the policy author, a second Synthea seed, deliberate boundary traps near each
-            threshold, and a real model-driven base agent in place of the stand-ins &mdash; which is
-            the only version of this whose generalization gap would mean anything.</p>
+            threshold, and independent model evaluation are still needed for generalization
+            claims. A subsequent 20-case model evaluation is summarized
+            <a href="/projects#clinical-agent">in the project archive</a>; it does not turn this
+            deterministic demo into a clinically validated system.</p>
         </aside>
       </section>
     </main>
