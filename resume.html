@@ -24,7 +24,7 @@
     <link rel="icon" href="favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <link rel="stylesheet" href="base.css?v=20260802b" />
-    <link rel="stylesheet" href="content.css?v=20260909a" />
+    <link rel="stylesheet" href="content.css?v=20260914a" />
   </head>
   <body itemscope itemtype="https://schema.org/Person">
     <meta itemprop="name" content="Chupeng Wei" />
@@ -72,7 +72,7 @@
         </section>
         <section class="document-section">
           <h2>Education</h2>
-          <div class="entry"><h3>Stanford University</h3><p class="entry-meta">B.S. Computer Science, Computational Biology subplan &middot; September 2025 &ndash; June 2029 (expected)</p><p>GPA: 3.958 / 4.000.</p><p>Selected coursework: Data Science for Medicine, Computational Human Genomics, Reinforcement Learning, Mining Massive Data Sets, Convex Optimization, and Stochastic Processes.</p></div>
+          <div class="entry"><h3>Stanford University</h3><p class="entry-meta">B.S. Computer Science, Computational Biology subplan &middot; September 2025 &ndash; June 2029 (expected)</p><p>GPA: 3.947.</p><p>Selected coursework: Data Science for Medicine, Computational Human Genomics, Reinforcement Learning, Mining Massive Data Sets, Convex Optimization I, Stochastic Processes I, Programming Abstractions, and General Relativity.</p></div>
         </section>
         <section class="document-section">
           <h2>Research experience</h2>
@@ -87,7 +87,7 @@
         <section class="document-section">
           <h2>Industry &amp; clinical experience</h2>
           <div class="entry-list">
-            <article class="entry"><h3>LLM development intern</h3><p class="entry-meta">Tencent &middot; Shenzhen, China &middot; August &ndash; September 2025</p><p>Built an AI exercise assistant with real-time motion detection, reference-gesture comparison, auditory feedback, and user-defined gestures for personalization.</p></article>
+            <article class="entry"><h3>LLM development intern</h3><p class="entry-meta">Tencent &middot; Shenzhen, China &middot; August &ndash; September 2025</p><p>Owned the integration of an AI exercise assistant: wired OpenCV video capture, voice input, Tencent Hunyuan LLM API calls, reference-gesture comparison, and auditory feedback into one real-time loop.</p><p>Authored the evaluation criteria the assistant scores users against, including which segments of a movement count as its key parts, and the prompts that keep the model in agreement with that rubric. Added user-defined gestures so the reference set became data rather than hard-coded logic.</p></article>
             <article class="entry"><h3>Imaging technician intern</h3><p class="entry-meta">Hospital imaging operations &middot; Linzhi, Tibet &middot; July &ndash; August 2024</p><p>Supported CT and digital-radiography workflows serving more than 120 patients per day, including patient positioning. Observed MRI workflows and assisted with patient navigation and outreach.</p></article>
           </div>
         </section>
@@ -95,6 +95,7 @@
           <h2>Selected projects</h2>
           <div class="entry-list">
             <article class="entry"><h3>Clinical Agent Safety: Benchmark and Runtime Guard (VMAG)</h3><p class="entry-meta">July 2026 &ndash; present</p><p>Built a synthetic-FHIR benchmark that scores each agent step as act, gather missing information, abstain, or escalate, with a policy guard outside the model.</p><p>In a 20-case guard-off versus guard-on evaluation, a 7B open model's unsafe-action rate fell from 0.35 to 0.0. A frontier model remained at 0.0 unsafe-action rate while its over-refusal rate fell from 0.375 to 0.0. These are small synthetic-benchmark results, not evidence of clinical safety or generalization.</p><p>Evaluations can be reproduced offline using a committed response cache without credentials. This work instantiates and measures prior enforcement approaches; it does not claim a new architecture. <a href="/projects#clinical-agent">Project details</a> &middot; <a href="/clinical-agent">Earlier 14-case browser demo</a></p></article>
+            <article class="entry"><h3>MOPA: Multimodal Ordinal Preference Alignment</h3><p class="entry-meta">February 2026 &ndash; present &middot; Co-first author</p><p>Micro-video popularity prediction at upload time, before any interaction. Recast the task as ordinal exceedance estimation: the model emits monotone threshold probabilities rather than a scalar, with monotonicity guaranteed by construction, over frozen VideoPrism features fused with upload-time metadata by a gated multimodal unit.</p><p>A second, critic-free pairwise preference stage &mdash; DPO-style, from the RLHF/DPO/GRPO lineage but applied outside language &mdash; contrasts top-percentile videos against average ones to correct the conservative bias supervised training leaves on the tail.</p><p>Best of 10 prior methods on all four metrics, on a 3,989-video sample of SMPD-Video (SMP Challenge) with a 399-video evaluation split. Against the strongest baseline per metric: nMSE 0.6691 to 0.4989 and Spearman 0.5849 to 0.7171. On the top-5% tail, against the best baseline, Recall@5% 0.220 to 0.380. Substituting random preference pairs for targeted ones degrades every metric, which is what shows the gain comes from what is contrasted rather than from adding a stage.</p><p>Results are single-run (seed 42) and model-selected on the same validation split the metrics are reported on, with no separate held-out test split. A complete 9-page manuscript exists; no venue is claimed here. <a href="/projects#mopa">Project details</a></p></article>
             <article class="entry"><h3>Interactive Three-Body reading platform</h3><p>Built a participatory narrative system with four perspectives, cross-character memory, rewindable decisions, and a live Newtonian simulation.</p></article>
             <article class="entry"><h3>RL reward-signal validation</h3><p>Analyzed 220 WebArena-lite and Terminal Bench trajectories, audited counterexamples, and developed a prototype reward feature that improved combined AUC from 0.726 to 0.767.</p></article>
             <article class="entry"><h3>Paper-to-MP3 research tool</h3><p>Built a Python CLI that fetches papers, extracts body text, summarizes paragraphs in Chinese with a local model, and exports Markdown plus MP3 narration.</p></article>
@@ -109,14 +110,16 @@
           <div class="entry-list">
             <article class="entry"><h3>Machine learning classification of astronomical objects</h3><p class="entry-meta">2023 &ndash; 2024</p><p>Used neural networks and random forests with Gaia DR3 and SDSS data to classify stars, quasars, and galaxies. Featured in the CCIR Student Research Spotlight.</p></article>
             <article class="entry"><h3>Quantum fingerprint for materials</h3><p class="entry-meta">January &ndash; March 2025</p><p>Preprocessed materials data, worked with Raman instrumentation, and compared simulated Raman wavelengths with theory.</p></article>
-            <article class="entry"><h3>Sonoluminescence modeling</h3><p class="entry-meta">2023 &ndash; 2024</p><p>Modeled ultrasonic light emission. S.-T. Yau High School Science Award Honorable Mention.</p></article>
+            <article class="entry"><h3>Sonoluminescence modeling</h3><p class="entry-meta">2023 &ndash; 2024</p><p>Modeled ultrasonic light emission. S.-T. Yau High School Science Award Honorable Mention. This work became the Modern Physics Letters B publication above.</p></article>
+            <article class="entry"><h3>Searching for forming planets through molecular gas dynamics</h3><p class="entry-meta">March &ndash; September 2024</p><p>Fitted a 3D kinematic model to a protoplanetary disk, then used velocity-field residuals to identify substructures indicating planet candidates. Coached by a professor from Purple Mountain Observatory.</p></article>
+            <article class="entry"><h3>Quantum entanglement in 1D spin chains</h3><p class="entry-meta">2023 &ndash; 2024</p><p>Studied entanglement in one-dimensional spin chains through the Hamiltonian formulation, with numerical solutions to spin-chain eigenvalue problems. Chinese Talent Program.</p></article>
           </div>
         </section>
         <section class="document-section">
           <h2>Skills</h2>
           <div class="skill-groups">
             <div class="skill-group"><strong>Programming</strong><span>Python, SQL, C++, R</span></div>
-            <div class="skill-group"><strong>Data &amp; methods</strong><span>Large-scale data processing, statistical analysis, numerical simulation, neural networks, random forests, reinforcement learning</span></div>
+            <div class="skill-group"><strong>Data &amp; methods</strong><span>Large-scale data processing, statistical analysis, numerical simulation, neural networks, random forests, reinforcement learning, ordinal and monotone output heads, gated multimodal fusion</span></div><div class="skill-group"><strong>LLM &amp; agent work</strong><span>LLM API integration, prompt engineering and behavior specification, DPO-style preference alignment, out-of-model policy enforcement</span></div><div class="skill-group"><strong>Evaluation methodology</strong><span>Leakage-aware and grouped cross-validation, ablation design, rank metrics, tail-conditioned metrics, reproducible offline harnesses</span></div>
             <div class="skill-group"><strong>Biomedical AI</strong><span>Synthetic FHIR, clinical-agent evaluation, medical image reconstruction, computational genomics, Raman/SERS analysis</span></div>
             <div class="skill-group"><strong>Languages</strong><span>Chinese (native), English (fluent)</span></div>
           </div>
