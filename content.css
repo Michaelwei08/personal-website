@@ -706,6 +706,10 @@
   height: auto;
   display: block;
   object-fit: contain;
+}.archive-visual svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }.archive-principle {
   display: grid;
   grid-template-columns: 0.45fr 1fr;
